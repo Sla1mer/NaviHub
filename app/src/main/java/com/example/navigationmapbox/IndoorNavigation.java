@@ -3,6 +3,7 @@ package com.example.navigationmapbox;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
@@ -29,8 +30,9 @@ public class IndoorNavigation extends AppCompatActivity implements OnMapReadyCal
     boolean flag = true;
     private MapView mapView;
     private MapboxMap mapboxMap;
+    Button btn_info;
 
-            @Override
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Mapbox.getInstance(this, getString(R.string.access_token));
@@ -38,6 +40,17 @@ public class IndoorNavigation extends AppCompatActivity implements OnMapReadyCal
         mapView = findViewById(R.id.mapView);
         mapView.onCreate(savedInstanceState);
         mapView.getMapAsync(this);
+
+        btn_info = (Button) findViewById(R.id.infoPanel);
+
+        btn_info.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(), PopActivity.class);
+                startActivity(i);
+            }
+        });
+
 
         final ImageView imageButton1 = (ImageView) findViewById(R.id.Floor1);
         final ImageView imageButton2 = (ImageView) findViewById(R.id.Floor2);

@@ -11,8 +11,7 @@
         android:layout_height="match_parent"
         mapbox:mapbox_cameraTargetLat="54.736125"
         mapbox:mapbox_cameraTargetLng="20.491273"
-        mapbox:mapbox_cameraZoom="12">
-    </com.mapbox.mapboxsdk.maps.MapView>
+        mapbox:mapbox_cameraZoom="12"></com.mapbox.mapboxsdk.maps.MapView>
 
     <Button
         android:id="@+id/startButton2"
@@ -28,6 +27,21 @@
         android:textColor="@color/mapboxWhite"
         mapbox:layout_constraintEnd_toEndOf="parent"
         mapbox:layout_constraintTop_toBottomOf="@+id/Floor4" />
+
+    <Button
+        android:id="@+id/infoPanel"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="835dp"
+        android:layout_marginLeft="5dp"
+        android:background="@drawable/info"
+        android:onClick="onMyButtonClick"
+        android:textColor="@color/mapboxWhite"
+        mapbox:layout_constraintStart_toStartOf="parent"
+        mapbox:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/Floor1"
