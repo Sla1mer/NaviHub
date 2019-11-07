@@ -8,13 +8,32 @@
     <com.mapbox.mapboxsdk.maps.MapView
         android:id="@+id/mapView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></com.mapbox.mapboxsdk.maps.MapView>
+        android:layout_height="match_parent"
+        mapbox:mapbox_cameraTargetLat="54.736125"
+        mapbox:mapbox_cameraTargetLng="20.491273"
+        mapbox:mapbox_cameraZoom="40">
+    </com.mapbox.mapboxsdk.maps.MapView>
+
+    <Button
+        android:id="@+id/startButton2"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="330dp"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/repeat1"
+        android:onClick="onMyButtonClick"
+        android:textColor="@color/mapboxWhite"
+        mapbox:layout_constraintEnd_toEndOf="parent"
+        mapbox:layout_constraintTop_toBottomOf="@+id/Floor4" />
 
     <ImageView
         android:id="@+id/Floor1"
-        android:layout_width="65dp"
-        android:layout_height="65dp"
-        android:layout_marginTop="250dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="400dp"
         android:layout_marginEnd="5dp"
         android:layout_marginRight="5dp"
         android:background="@drawable/etaj_button1"
@@ -23,8 +42,8 @@
 
     <ImageView
         android:id="@+id/Floor2"
-        android:layout_width="65dp"
-        android:layout_height="65dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_marginStart="310dp"
         android:layout_marginLeft="310dp"
         android:layout_marginTop="5dp"
@@ -36,8 +55,8 @@
 
     <ImageView
         android:id="@+id/Floor3"
-        android:layout_width="65dp"
-        android:layout_height="65dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_marginStart="310dp"
         android:layout_marginLeft="310dp"
         android:layout_marginTop="5dp"
@@ -49,8 +68,8 @@
 
     <ImageView
         android:id="@+id/Floor4"
-        android:layout_width="65dp"
-        android:layout_height="65dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_marginStart="310dp"
         android:layout_marginLeft="310dp"
         android:layout_marginTop="5dp"

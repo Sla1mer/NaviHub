@@ -16,24 +16,24 @@
 
     <Button
         android:id="@+id/startButton2"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginTop="250dp"
-        android:layout_marginRight="5dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginLeft="5dp"
         android:background="@drawable/repeat1"
         android:onClick="onMyButtonClick"
         android:textColor="@color/mapboxWhite"
-        mapbox:layout_constraintEnd_toEndOf="parent"
-        mapbox:layout_constraintTop_toBottomOf="@+id/Floor4" />
+        mapbox:layout_constraintStart_toStartOf="parent"
+        mapbox:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/Floor1"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="250dp"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="5dp"
         android:layout_marginRight="5dp"
         android:background="@drawable/etaj_button1"
@@ -42,8 +42,8 @@
 
     <ImageView
         android:id="@+id/Floor2"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
         android:layout_marginStart="310dp"
         android:layout_marginLeft="310dp"
         android:layout_marginTop="5dp"
@@ -55,8 +55,8 @@
 
     <ImageView
         android:id="@+id/Floor3"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
         android:layout_marginStart="310dp"
         android:layout_marginLeft="310dp"
         android:layout_marginTop="5dp"
@@ -68,8 +68,8 @@
 
     <ImageView
         android:id="@+id/Floor4"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
         android:layout_marginStart="310dp"
         android:layout_marginLeft="310dp"
         android:layout_marginTop="5dp"
