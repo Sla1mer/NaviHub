@@ -2,7 +2,8 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:mapbox="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
 
     <com.mapbox.mapboxsdk.maps.MapView
@@ -17,81 +18,77 @@
         android:id="@+id/startButton2"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="210dp"
-        android:layout_marginRight="5dp"
         android:background="@drawable/repeat1"
         android:onClick="onMyButtonClick"
         android:textColor="@color/mapboxWhite"
-        mapbox:layout_constraintEnd_toEndOf="parent"
-        mapbox:layout_constraintTop_toBottomOf="@+id/Floor4" />
+        mapbox:layout_constraintHorizontal_bias="0.96"
+        mapbox:layout_constraintVertical_bias="0.96"
+        mapbox:layout_constraintLeft_toLeftOf="parent"
+        mapbox:layout_constraintRight_toRightOf="parent"
+        mapbox:layout_constraintTop_toTopOf="parent"
+        mapbox:layout_constraintBottom_toBottomOf="parent"/>
 
     <Button
         android:id="@+id/infoPanel"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="835dp"
-        android:layout_marginLeft="5dp"
         android:background="@drawable/info"
         android:onClick="onMyButtonClick"
         android:textColor="@color/mapboxWhite"
-        mapbox:layout_constraintStart_toStartOf="parent"
-        mapbox:layout_constraintTop_toTopOf="parent" />
+        mapbox:layout_constraintHorizontal_bias="0.03"
+        mapbox:layout_constraintVertical_bias="0.96"
+        mapbox:layout_constraintLeft_toLeftOf="parent"
+        mapbox:layout_constraintRight_toRightOf="parent"
+        mapbox:layout_constraintTop_toTopOf="parent"
+        mapbox:layout_constraintBottom_toBottomOf="parent"/>
 
     <ImageView
         android:id="@+id/Floor1"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_marginTop="300dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginRight="5dp"
         android:background="@drawable/etaj_button1"
-        mapbox:layout_constraintEnd_toEndOf="parent"
-        mapbox:layout_constraintTop_toTopOf="parent" />
+        mapbox:layout_constraintHorizontal_bias="0.96"
+        mapbox:layout_constraintVertical_bias="0.3"
+        mapbox:layout_constraintLeft_toLeftOf="parent"
+        mapbox:layout_constraintRight_toRightOf="parent"
+        mapbox:layout_constraintTop_toTopOf="parent"
+        mapbox:layout_constraintBottom_toBottomOf="parent"/>
 
     <ImageView
         android:id="@+id/Floor2"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_marginStart="310dp"
-        android:layout_marginLeft="310dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginRight="5dp"
         android:background="@drawable/etaj2"
-        mapbox:layout_constraintEnd_toEndOf="parent"
-        mapbox:layout_constraintTop_toBottomOf="@+id/Floor1" />
+        mapbox:layout_constraintHorizontal_bias="0.96"
+        mapbox:layout_constraintVertical_bias="0.43"
+        mapbox:layout_constraintLeft_toLeftOf="parent"
+        mapbox:layout_constraintRight_toRightOf="parent"
+        mapbox:layout_constraintTop_toTopOf="parent"
+        mapbox:layout_constraintBottom_toBottomOf="parent"/>
 
     <ImageView
         android:id="@+id/Floor3"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_marginStart="310dp"
-        android:layout_marginLeft="310dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginRight="5dp"
         android:background="@drawable/etaj3"
-        mapbox:layout_constraintEnd_toEndOf="parent"
-        mapbox:layout_constraintTop_toBottomOf="@+id/Floor2" />
+        mapbox:layout_constraintHorizontal_bias="0.96"
+        mapbox:layout_constraintVertical_bias="0.56"
+        mapbox:layout_constraintLeft_toLeftOf="parent"
+        mapbox:layout_constraintRight_toRightOf="parent"
+        mapbox:layout_constraintTop_toTopOf="parent"
+        mapbox:layout_constraintBottom_toBottomOf="parent" />
 
     <ImageView
         android:id="@+id/Floor4"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_marginStart="310dp"
-        android:layout_marginLeft="310dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginRight="5dp"
         android:background="@drawable/etaj4"
-        mapbox:layout_constraintEnd_toEndOf="parent"
-        mapbox:layout_constraintTop_toBottomOf="@+id/Floor3" />
+        mapbox:layout_constraintHorizontal_bias="0.96"
+        mapbox:layout_constraintVertical_bias="0.69"
+        mapbox:layout_constraintLeft_toLeftOf="parent"
+        mapbox:layout_constraintRight_toRightOf="parent"
+        mapbox:layout_constraintTop_toTopOf="parent"
+        mapbox:layout_constraintBottom_toBottomOf="parent"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

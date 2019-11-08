@@ -63,6 +63,7 @@ public class IndoorNavigation extends AppCompatActivity implements OnMapReadyCal
             {
                 // меняем изображение на кнопке
                 if (flag){
+                    onMapReady(mapboxMap);
                     imageButton2.setImageResource(R.drawable.etaj2);
                     imageButton1.setImageResource(R.drawable.etaj_button1);
                     imageButton3.setImageResource(R.drawable.etaj3);
@@ -78,6 +79,7 @@ public class IndoorNavigation extends AppCompatActivity implements OnMapReadyCal
             {
                 // меняем изображение на кнопке
                 if (flag){
+                    oneSyle(mapboxMap);
                     imageButton2.setImageResource(R.drawable.etaj_button2);
                     imageButton1.setImageResource(R.drawable.vniz1etaj);
                     imageButton3.setImageResource(R.drawable.etaj3);
@@ -168,6 +170,16 @@ public class IndoorNavigation extends AppCompatActivity implements OnMapReadyCal
 
                     }
                 });
+    }
+
+    public void oneSyle(@NonNull final MapboxMap mapboxMap){
+        this.mapboxMap = mapboxMap;
+        mapboxMap.setStyle(getString(R.string.mapbox_style_outdoors), new Style.OnStyleLoaded() {
+            @Override
+            public void onStyleLoaded(@NonNull Style style) {
+
+            }
+        });
     }
 
     @Override
