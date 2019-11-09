@@ -3,4 +3,8 @@
     <string name="access_token" translatable="false">pk.eyJ1Ijoic2xhMW1lcmFwayIsImEiOiJjazJqZW0yZnkwcGIyM25rMnhrOWEzZzdoIn0._kZkHWCqvxyoo5Hiv-QiqA</string>
     <string name="user_location_permission_explanation">This app needs location permissions to show its functionality.</string>
     <string name="user_location_permission_not_granted">You didn\'t grant location permissions.</string>
+    <string name="kvant4">mapbox://styles/sla1merapk/ck2rcc71t3bd21cpeixdjt96c/draft</string>
+    <string name="kvant1">mapbox://styles/sla1merapk/ck2rewpx82sci1cqup4we2d1y</string>
+    <string name="kvant2">mapbox://styles/sla1merapk/ck2rfqi8m3eyd1cpao5nclahg</string>
+    <string name="kvant3">mapbox://styles/sla1merapk/ck2rhnpgz0mwh1cl58zslu9xc</string>
 </resources>

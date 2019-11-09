@@ -32,6 +32,7 @@ public class IndoorNavigation extends AppCompatActivity implements OnMapReadyCal
     private MapboxMap mapboxMap;
     Button btn_info;
 
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,7 +80,7 @@ public class IndoorNavigation extends AppCompatActivity implements OnMapReadyCal
             {
                 // меняем изображение на кнопке
                 if (flag){
-                    oneSyle(mapboxMap);
+                    oneSyle2(mapboxMap);
                     imageButton2.setImageResource(R.drawable.etaj_button2);
                     imageButton1.setImageResource(R.drawable.vniz1etaj);
                     imageButton3.setImageResource(R.drawable.etaj3);
@@ -95,6 +96,7 @@ public class IndoorNavigation extends AppCompatActivity implements OnMapReadyCal
             {
                 // меняем изображение на кнопке
                 if (flag){
+                    oneSyle2(mapboxMap);
                     imageButton3.setImageResource(R.drawable.etaj_button3);
                     imageButton2.setImageResource(R.drawable.vniz2etaj);
                     imageButton1.setImageResource(R.drawable.vniz1etaj);
@@ -109,6 +111,7 @@ public class IndoorNavigation extends AppCompatActivity implements OnMapReadyCal
             {
                 // меняем изображение на кнопке
                 if (flag){
+                    oneSyle(mapboxMap);
                     imageButton3.setImageResource(R.drawable.vniz3etaj);
                     imageButton2.setImageResource(R.drawable.vniz2etaj);
                     imageButton1.setImageResource(R.drawable.vniz1etaj);
@@ -164,7 +167,7 @@ public class IndoorNavigation extends AppCompatActivity implements OnMapReadyCal
     @Override
     public void onMapReady(@NonNull final MapboxMap mapboxMap) {
                 this.mapboxMap = mapboxMap;
-                mapboxMap.setStyle(getString(R.string.navigation_guidance_day), new Style.OnStyleLoaded() {
+                mapboxMap.setStyle(getString(R.string.kvant1), new Style.OnStyleLoaded() {
                     @Override
                     public void onStyleLoaded(@NonNull Style style) {
 
@@ -174,7 +177,27 @@ public class IndoorNavigation extends AppCompatActivity implements OnMapReadyCal
 
     public void oneSyle(@NonNull final MapboxMap mapboxMap){
         this.mapboxMap = mapboxMap;
-        mapboxMap.setStyle(getString(R.string.mapbox_style_outdoors), new Style.OnStyleLoaded() {
+        mapboxMap.setStyle(getString(R.string.kvant4), new Style.OnStyleLoaded() {
+            @Override
+            public void onStyleLoaded(@NonNull Style style) {
+
+            }
+        });
+    }
+
+    public void oneSyle2 (@NonNull final MapboxMap mapboxMap){
+        this.mapboxMap = mapboxMap;
+        mapboxMap.setStyle(getString(R.string.kvant2), new Style.OnStyleLoaded() {
+            @Override
+            public void onStyleLoaded(@NonNull Style style) {
+
+            }
+        });
+    }
+
+    public void oneSyle3 (@NonNull final MapboxMap mapboxMap){
+        this.mapboxMap = mapboxMap;
+        mapboxMap.setStyle(getString(R.string.kvant3), new Style.OnStyleLoaded() {
             @Override
             public void onStyleLoaded(@NonNull Style style) {
 
