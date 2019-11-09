@@ -12,6 +12,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+
+import java.util.ArrayList;
 import java.util.List;
 import android.widget.Toast;
 
@@ -23,6 +25,8 @@ import com.mapbox.mapboxsdk.maps.MapView;
 import com.mapbox.mapboxsdk.maps.MapboxMap;
 import com.mapbox.mapboxsdk.maps.Style;
 import com.mapbox.mapboxsdk.maps.OnMapReadyCallback;
+
+
 
 
 public class IndoorNavigation extends AppCompatActivity implements OnMapReadyCallback, MapboxMap.OnMapClickListener, PermissionsListener {
@@ -170,10 +174,10 @@ public class IndoorNavigation extends AppCompatActivity implements OnMapReadyCal
                 mapboxMap.setStyle(getString(R.string.kvant1), new Style.OnStyleLoaded() {
                     @Override
                     public void onStyleLoaded(@NonNull Style style) {
-
                     }
                 });
     }
+
 
     public void oneSyle(@NonNull final MapboxMap mapboxMap){
         this.mapboxMap = mapboxMap;
@@ -204,6 +208,8 @@ public class IndoorNavigation extends AppCompatActivity implements OnMapReadyCal
             }
         });
     }
+
+
 
     @Override
     public void onExplanationNeeded(List<String> permissionsToExplain) {
