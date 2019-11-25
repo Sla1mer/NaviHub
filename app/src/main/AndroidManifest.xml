@@ -3,6 +3,8 @@
     package="com.example.navigationmapbox">
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
 
     <application
         android:allowBackup="true"
@@ -22,6 +24,8 @@
         <activity android:name=".PopActivity"
             android:theme="@style/AppTheme.PopMe">
         </activity>
+        <activity android:name=".IndoorNavigation$IndoorNavigation" />
+        <activity android:name=".TestBlue"/>
     </application>
 
 </manifest>

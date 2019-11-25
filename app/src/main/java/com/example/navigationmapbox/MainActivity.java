@@ -1,9 +1,18 @@
 package com.example.navigationmapbox;
 
+import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothDevice;
+import android.bluetooth.BluetoothSocket;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -12,6 +21,8 @@ import android.widget.Toast;
 
 // classes needed to initialize map
 import com.mapbox.mapboxsdk.Mapbox;
+import com.mapbox.mapboxsdk.annotations.Polyline;
+import com.mapbox.mapboxsdk.annotations.PolylineOptions;
 import com.mapbox.mapboxsdk.maps.MapView;
 import com.mapbox.mapboxsdk.maps.MapboxMap;
 import com.mapbox.mapboxsdk.maps.Style;
@@ -29,6 +40,8 @@ import com.mapbox.geojson.Point;
 import com.mapbox.mapboxsdk.geometry.LatLng;
 import com.mapbox.mapboxsdk.style.layers.SymbolLayer;
 import com.mapbox.mapboxsdk.style.sources.GeoJsonSource;
+
+import static com.example.navigationmapbox.IndoorNavigation.mUUID;
 import static com.mapbox.mapboxsdk.style.layers.PropertyFactory.iconAllowOverlap;
 import static com.mapbox.mapboxsdk.style.layers.PropertyFactory.iconIgnorePlacement;
 import static com.mapbox.mapboxsdk.style.layers.PropertyFactory.iconImage;
@@ -67,6 +80,8 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     private NavigationMapRoute navigationMapRoute;
     // variables needed to initialize navigation
     private Button button;
+    private UUID myUUID;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -254,6 +269,8 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         super.onLowMemory();
         mapView.onLowMemory();
     }
+
+
 
     public void onMyButtonClick(View view)
     {

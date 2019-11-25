@@ -2,7 +2,9 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:mapbox="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".examples.styles.IndoorNavigation">
 
 
     <com.mapbox.mapboxsdk.maps.MapView
@@ -13,6 +15,60 @@
         mapbox:mapbox_cameraTargetLng="20.491273"
         mapbox:mapbox_cameraZoom="18">
     </com.mapbox.mapboxsdk.maps.MapView>
+
+    <RelativeLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:textSize="22dp"
+            android:visibility="visible" />
+
+        <ListView
+            android:id="@+id/list"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textInfo"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="30dp"
+            android:visibility="gone" />
+
+        <FrameLayout
+            android:id="@+id/panel"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="#e7e7e5"
+            android:visibility="visible">
+            /// **************///
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                /// **************///
+            </RelativeLayout>
+        </FrameLayout>
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/bluet"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        mapbox:layout_constraintHorizontal_bias="0.96"
+        mapbox:layout_constraintVertical_bias="0"
+        mapbox:layout_constraintLeft_toLeftOf="parent"
+        mapbox:layout_constraintRight_toRightOf="parent"
+        mapbox:layout_constraintTop_toTopOf="parent"
+        mapbox:layout_constraintBottom_toBottomOf="parent"
+        android:onClick="onMyButtonClick2"
+        android:text="BT"
+        android:textSize="10sp"/>
 
     <Button
         android:id="@+id/startButton2"

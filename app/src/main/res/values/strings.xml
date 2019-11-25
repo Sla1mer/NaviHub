@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Navigation map</string>
+    <string name="app_name">NaviHubRemastered</string>
     <string name="access_token" translatable="false">pk.eyJ1Ijoic2xhMW1lcmFwayIsImEiOiJjazJqZW0yZnkwcGIyM25rMnhrOWEzZzdoIn0._kZkHWCqvxyoo5Hiv-QiqA</string>
     <string name="user_location_permission_explanation">This app needs location permissions to show its functionality.</string>
     <string name="user_location_permission_not_granted">You didn\'t grant location permissions.</string>
