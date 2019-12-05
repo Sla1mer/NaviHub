@@ -31,22 +31,16 @@ import static android.R.layout.simple_list_item_1;
 
 public class TestBlue extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener{
 
-    ToggleButton tb1,tb2,tb3,tb4;
     private static final int REQUEST_ENABLE_BT = 1;
     public TextView textInfo;
     BluetoothAdapter bluetoothAdapter;
     ArrayList< String> pairedDeviceArrayList;
     ListView listViewPairedDevice;
-    FrameLayout ButPanel;
     ArrayAdapter< String> pairedDeviceAdapter;
     ThreadConnectBTdevice myThreadConnectBTdevice;
-    ThreadConnected myThreadConnected;
     private UUID myUUID;
     private StringBuilder sb = new StringBuilder();
 
-
-
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_indoor);
@@ -54,7 +48,6 @@ public class TestBlue extends AppCompatActivity implements CompoundButton.OnChec
         final String UUID_STRING_WELL_KNOWN_SPP = "00001101-0000-1000-8000-00805F9B34FB";
         textInfo = (TextView)findViewById(R.id.textInfo);
         listViewPairedDevice = (ListView)findViewById(R.id.list);
-        ButPanel = (FrameLayout) findViewById(R.id.panel);
         if (!getPackageManager().hasSystemFeature(PackageManager.FEATURE_BLUETOOTH)){
             Toast.makeText(this, "BLUETOOTH NOT support", Toast.LENGTH_LONG).show();
             finish();
@@ -71,8 +64,7 @@ public class TestBlue extends AppCompatActivity implements CompoundButton.OnChec
         textInfo.setText(String.format("Это устройство: %s", stInfo));
     }
 
-    @Override
-    protected void onStart() { // Запрос на включение Bluetooth
+    public void onStart2() { // Запрос на включение Bluetooth
         super.onStart();
         if (!bluetoothAdapter.isEnabled()) {
             Intent enableIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
@@ -92,13 +84,14 @@ public class TestBlue extends AppCompatActivity implements CompoundButton.OnChec
             listViewPairedDevice.setAdapter(pairedDeviceAdapter);
             listViewPairedDevice.setOnItemClickListener(new AdapterView.OnItemClickListener() { // Клик по нужному устройству
 
+
                 @Override
                 public void onItemClick(AdapterView< ?> parent, View view, int position, long id) { //тут пробел после скобки !!!!
                     listViewPairedDevice.setVisibility(View.GONE); // После клика скрываем список
                     String  itemValue = (String) listViewPairedDevice.getItemAtPosition(position);
                     String MAC = itemValue.substring(itemValue.length() - 17); // Вычленяем MAC-адрес
                     BluetoothDevice device2 = bluetoothAdapter.getRemoteDevice(MAC);
-                    myThreadConnectBTdevice = new ThreadConnectBTdevice(device2);
+                    myThreadConnectBTdevice = new TestBlue.ThreadConnectBTdevice(device2);
                     myThreadConnectBTdevice.start();  // Запускаем поток для подключения Bluetooth
                 }
             });
@@ -106,7 +99,6 @@ public class TestBlue extends AppCompatActivity implements CompoundButton.OnChec
     }
 
 
-    @Override
     protected void onDestroy() { // Закрытие приложения
         super.onDestroy();
         if(myThreadConnectBTdevice!=null) myThreadConnectBTdevice.cancel();
@@ -126,7 +118,6 @@ public class TestBlue extends AppCompatActivity implements CompoundButton.OnChec
         }
     }
 
-    @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 
     }
@@ -166,19 +157,8 @@ public class TestBlue extends AppCompatActivity implements CompoundButton.OnChec
                     e1.printStackTrace();
                 }
             }
-            if(success) {  // Если законнектились, тогда открываем панель с кнопками и запускаем поток приёма и отправки данных
-                runOnUiThread(new Runnable() {
-
-                    @Override
-                    public void run() {
-                        ButPanel.setVisibility(View.VISIBLE); // открываем панель с кнопками
-                    }
-                });
-
-                myThreadConnected = new ThreadConnected(bluetoothSocket);
-                myThreadConnected.start(); // запуск потока приёма и отправки данных
-            }
         }
+
 
         public void cancel() {
             Toast.makeText(getApplicationContext(), "Close - BluetoothSocket", Toast.LENGTH_LONG).show();
@@ -192,33 +172,5 @@ public class TestBlue extends AppCompatActivity implements CompoundButton.OnChec
 
     } // END ThreadConnectBTdevice:
 
-
-    private class ThreadConnected extends Thread {    // Поток - приём и отправка данных
-        private final InputStream connectedInputStream;
-        private final OutputStream connectedOutputStream;
-        private String sbprint;
-        public ThreadConnected(BluetoothSocket socket) {
-            InputStream in = null;
-            OutputStream out = null;
-            try {
-                in = socket.getInputStream();
-                out = socket.getOutputStream();
-            }
-            catch (IOException e) {
-                e.printStackTrace();
-            }
-            connectedInputStream = in;
-            connectedOutputStream = out;
-        }
-
-        public void write(byte[] buffer) {
-            try {
-                connectedOutputStream.write(buffer);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-
-    }
 
 }
