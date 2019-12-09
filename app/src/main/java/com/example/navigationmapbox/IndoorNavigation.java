@@ -1,70 +1,21 @@
 package com.example.navigationmapbox;
 
-import android.Manifest;
-import android.app.AlertDialog;
-import android.app.ProgressDialog;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
-import android.bluetooth.BluetoothServerSocket;
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.IntentFilter;
 import android.graphics.Color;
-import android.nfc.Tag;
-import android.os.Build;
 import android.os.Bundle;
 
-import android.app.Activity;
-import android.bluetooth.BluetoothAdapter;
-import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.FrameLayout;
-import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
-import android.widget.ToggleButton;
 
 import androidx.appcompat.app.AppCompatActivity;
+import android.graphics.BitmapFactory;
 
-import java.io.BufferedReader;
-import java.io.ByteArrayOutputStream;
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.util.ArrayList;
-import java.util.Set;
-import java.util.UUID;
-
-import android.app.Activity;
-import android.bluetooth.BluetoothAdapter;
-import android.bluetooth.BluetoothDevice;
-import android.bluetooth.BluetoothSocket;
-import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.CompoundButton;
-import android.widget.FrameLayout;
-import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
-import android.widget.ToggleButton;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -72,13 +23,9 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Set;
 import java.util.UUID;
-
-
-import static android.R.layout.simple_list_item_1;
 
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.mapbox.geojson.Feature;
 import com.mapbox.geojson.FeatureCollection;
@@ -93,107 +40,18 @@ import com.mapbox.mapboxsdk.style.layers.LineLayer;
 import com.mapbox.mapboxsdk.style.layers.Property;
 import com.mapbox.mapboxsdk.style.layers.PropertyFactory;
 import com.mapbox.mapboxsdk.style.sources.GeoJsonSource;
-import android.content.Intent;
-import android.graphics.Color;
-import android.location.Location;
-import android.os.AsyncTask;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
+
 import android.widget.Button;
-import android.widget.FrameLayout;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.graphics.BitmapFactory;
-import android.os.Bundle;
-
-import java.io.InputStream;
-import java.lang.ref.WeakReference;
-import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.util.Objects;
-import java.util.Scanner;
-
-import android.graphics.Color;
-import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
-import com.mapbox.geojson.Feature;
-import com.mapbox.geojson.FeatureCollection;
-import com.mapbox.geojson.LineString;
-import com.mapbox.geojson.Point;
-import com.mapbox.mapboxsdk.Mapbox;
-import com.mapbox.mapboxsdk.maps.MapView;
-import com.mapbox.mapboxsdk.maps.MapboxMap;
-import com.mapbox.mapboxsdk.maps.OnMapReadyCallback;
-import com.mapbox.mapboxsdk.maps.Style;
-import com.mapbox.mapboxsdk.style.layers.LineLayer;
-import com.mapbox.mapboxsdk.style.layers.Property;
-import com.mapbox.mapboxsdk.style.layers.PropertyFactory;
-import com.mapbox.mapboxsdk.style.sources.GeoJsonSource;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 // classes needed to initialize map
 import com.mapbox.android.core.permissions.PermissionsListener;
-import com.mapbox.geojson.Feature;
-import com.mapbox.geojson.FeatureCollection;
-import com.mapbox.geojson.LineString;
-import com.mapbox.geojson.utils.PolylineUtils;
-import com.mapbox.mapboxsdk.Mapbox;
 import com.mapbox.mapboxsdk.annotations.MarkerOptions;
-import com.mapbox.mapboxsdk.annotations.PolygonOptions;
-import com.mapbox.mapboxsdk.annotations.Polyline;
-import com.mapbox.mapboxsdk.annotations.PolylineOptions;
 import com.mapbox.mapboxsdk.geometry.LatLng;
-import com.mapbox.mapboxsdk.maps.MapView;
-import com.mapbox.mapboxsdk.maps.MapboxMap;
-import com.mapbox.mapboxsdk.maps.Style;
-import com.mapbox.mapboxsdk.maps.OnMapReadyCallback;
-import com.mapbox.mapboxsdk.annotations.PolylineOptions;
-import com.mapbox.mapboxsdk.style.layers.LineLayer;
-import com.mapbox.mapboxsdk.style.sources.GeoJsonSource;
-import com.mapbox.mapboxsdk.utils.ColorUtils;
-
-import org.jetbrains.annotations.Nullable;
-
-import timber.log.Timber;
 
 import static com.mapbox.mapboxsdk.style.layers.PropertyFactory.lineColor;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
-import java.util.UUID;
-
-import android.bluetooth.BluetoothAdapter;
-import android.bluetooth.BluetoothDevice;
-import android.bluetooth.BluetoothSocket;
-import android.os.Bundle;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.util.UUID;
-
-
 
 
 /**
@@ -209,6 +67,7 @@ public class IndoorNavigation<TAG> extends AppCompatActivity implements OnMapRea
     private List<Point> routeCoordinates;
     boolean flag = true;
     private MapboxMap mapboxMap;
+    private static final String ICON_ID = "ICON_ID";
     Button btn_info;
     TextView myLabel;
     EditText myTextbox;
@@ -223,6 +82,10 @@ public class IndoorNavigation<TAG> extends AppCompatActivity implements OnMapRea
     int counter;
     volatile boolean stopWorker;
     private static final UUID uuid = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
+//    String text1 = number.getText().toString();
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -325,7 +188,7 @@ public class IndoorNavigation<TAG> extends AppCompatActivity implements OnMapRea
         });
     }
 
-    void findBT()
+    public void findBT()
     {
         mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
         if(mBluetoothAdapter == null)
@@ -354,7 +217,7 @@ public class IndoorNavigation<TAG> extends AppCompatActivity implements OnMapRea
         myLabel.setText("Bluetooth Device Found");
     }
 
-    void openBT() throws IOException
+    public void openBT() throws IOException
     {
         UUID uuid = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB"); //Standard SerialPortService ID
         mmSocket = mmDevice.createRfcommSocketToServiceRecord(uuid);
@@ -367,7 +230,7 @@ public class IndoorNavigation<TAG> extends AppCompatActivity implements OnMapRea
         myLabel.setText("Bluetooth Opened");
     }
 
-    void beginListenForData()
+    public void beginListenForData()
     {
         final Handler handler = new Handler();
         final byte delimiter = 10; //This is the ASCII code for a newline character
@@ -400,9 +263,19 @@ public class IndoorNavigation<TAG> extends AppCompatActivity implements OnMapRea
 
                                     handler.post(new Runnable()
                                     {
-                                        public void run()
-                                        {
+                                        public void run() {
+//                                            tochka11();
                                             myLabel.setText(data);
+
+                                            switch (data) {
+                                                case ("166205241208"):
+                                                    tochka12();
+                                                    break;
+                                                case ("891701904"):
+                                                    tochka11();
+                                                    break;
+                                            }
+
                                         }
                                     });
                                 }
@@ -410,6 +283,7 @@ public class IndoorNavigation<TAG> extends AppCompatActivity implements OnMapRea
                                 {
                                     readBuffer[readBufferPosition++] = b;
                                 }
+
                             }
                         }
                     }
@@ -422,14 +296,6 @@ public class IndoorNavigation<TAG> extends AppCompatActivity implements OnMapRea
         });
 
         workerThread.start();
-    }
-
-    void sendData() throws IOException
-    {
-        String msg = myTextbox.getText().toString();
-        msg += "\n";
-        mmOutputStream.write(msg.getBytes());
-        myLabel.setText("Data Sent");
     }
 
     void closeBT() throws IOException
@@ -525,33 +391,50 @@ public class IndoorNavigation<TAG> extends AppCompatActivity implements OnMapRea
         });
     }
 
+    public void tochka11(){
+            MarkerOptions options = new MarkerOptions();
+            options.position(new LatLng(54.736301, 20.491550));
+            mapboxMap.addMarker(options);
+            mapboxMap.clear();
+
+    }
+    public void tochka12(){
+        MarkerOptions options = new MarkerOptions();
+        options.position(new LatLng(54.735914, 20.491454));
+        mapboxMap.addMarker(options);
+        mapboxMap.clear();
+    }
+
+
+
     @Override
     public void onMapReady(@NonNull final MapboxMap mapboxMap) {
         this.mapboxMap = mapboxMap;
-        mapboxMap.setStyle(getString(R.string.kvant1), new Style.OnStyleLoaded() {
-            @Override
-            public void onStyleLoaded(@NonNull Style style) {
 
-                initRouteCoordinates();
+            mapboxMap.setStyle(getString(R.string.kvant1), new Style.OnStyleLoaded() {
+                @Override
+                public void onStyleLoaded(@NonNull Style style) {
 
-// Create the LineString from the list of coordinates and then make a GeoJSON
-// FeatureCollection so we can add the line to our map as a layer.
-                style.addSource(new GeoJsonSource("line-source",
-                        FeatureCollection.fromFeatures(new Feature[]{Feature.fromGeometry(
-                                LineString.fromLngLats(routeCoordinates)
-                        )})));
+                    initRouteCoordinates();
 
-// The layer properties for our line. This is where we make the line dotted, set the
-// color, etc.
-                style.addLayer(new LineLayer("linelayer", "line-source").withProperties(
-                        PropertyFactory.lineDasharray(new Float[]{0.01f, 2f}),
-                        PropertyFactory.lineCap(Property.LINE_CAP_ROUND),
-                        PropertyFactory.lineJoin(Property.LINE_JOIN_ROUND),
-                        PropertyFactory.lineWidth(5f),
-                        PropertyFactory.lineColor(Color.parseColor("#e55e5e"))
-                ));
-            }
-        });
+    // Create the LineString from the list of coordinates and then make a GeoJSON
+    // FeatureCollection so we can add the line to our map as a layer.
+                    style.addSource(new GeoJsonSource("line-source",
+                            FeatureCollection.fromFeatures(new Feature[]{Feature.fromGeometry(
+                                    LineString.fromLngLats(routeCoordinates)
+                            )})));
+
+    // The layer properties for our line. This is where we make the line dotted, set the
+    // color, etc.
+                    style.addLayer(new LineLayer("linelayer", "line-source").withProperties(
+                            PropertyFactory.lineDasharray(new Float[]{0.01f, 2f}),
+                            PropertyFactory.lineCap(Property.LINE_CAP_ROUND),
+                            PropertyFactory.lineJoin(Property.LINE_JOIN_ROUND),
+                            PropertyFactory.lineWidth(5f),
+                            PropertyFactory.lineColor(Color.parseColor("#e55e5e"))
+                    ));
+                }
+            });
     }
 
     private void initRouteCoordinates() {
@@ -621,7 +504,7 @@ public class IndoorNavigation<TAG> extends AppCompatActivity implements OnMapRea
     }
 
     public void onMyButtonClick(View view) {
-        Intent intent = new Intent(IndoorNavigation.this, Bluetooth.class);
+        Intent intent = new Intent(IndoorNavigation.this, MainActivity.class);
         startActivity(intent);
     }
 
