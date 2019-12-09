@@ -264,7 +264,7 @@ public class IndoorNavigation<TAG> extends AppCompatActivity implements OnMapRea
                                     handler.post(new Runnable()
                                     {
                                         public void run() {
-//                                            tochka11();
+                                            tochka11();
                                             myLabel.setText(data);
 
                                             switch (data) {
@@ -392,17 +392,17 @@ public class IndoorNavigation<TAG> extends AppCompatActivity implements OnMapRea
     }
 
     public void tochka11(){
+            mapboxMap.clear();
             MarkerOptions options = new MarkerOptions();
             options.position(new LatLng(54.736301, 20.491550));
             mapboxMap.addMarker(options);
-            mapboxMap.clear();
 
     }
     public void tochka12(){
+        mapboxMap.clear();
         MarkerOptions options = new MarkerOptions();
         options.position(new LatLng(54.735914, 20.491454));
         mapboxMap.addMarker(options);
-        mapboxMap.clear();
     }
 
 
