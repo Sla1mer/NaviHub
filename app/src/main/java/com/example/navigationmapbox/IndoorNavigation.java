@@ -1,16 +1,24 @@
 package com.example.navigationmapbox;
 
+import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.os.Bundle;
 
 import android.bluetooth.BluetoothSocket;
 import android.content.Intent;
 import android.os.Handler;
+import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
+import android.view.WindowManager;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -43,6 +51,7 @@ import com.mapbox.mapboxsdk.style.sources.GeoJsonSource;
 
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -58,7 +67,7 @@ import static com.mapbox.mapboxsdk.style.layers.PropertyFactory.lineColor;
  * Add a GeoJSON line to a map.
  */
 
-public class IndoorNavigation<TAG> extends AppCompatActivity implements OnMapReadyCallback, MapboxMap.OnMapClickListener, PermissionsListener {
+public class IndoorNavigation<TAG> extends AppCompatActivity implements OnMapReadyCallback, MapboxMap.OnMapClickListener, PermissionsListener{
 
     private static final int REQ_ENABLE_BLUETOOTH = 1001;
 
@@ -71,6 +80,13 @@ public class IndoorNavigation<TAG> extends AppCompatActivity implements OnMapRea
     Button btn_info;
     TextView myLabel;
     EditText myTextbox;
+    Button vrNac;
+    Button serverNac;
+    Button vrKon;
+    Button prepodavatelskayKon;
+    Button prepodavatelskayKon2;
+    TextView otpr;
+    String  otpr2;
     BluetoothAdapter mBluetoothAdapter;
     BluetoothSocket mmSocket;
     BluetoothDevice mmDevice;
@@ -79,6 +95,13 @@ public class IndoorNavigation<TAG> extends AppCompatActivity implements OnMapRea
     Thread workerThread;
     byte[] readBuffer;
     int readBufferPosition;
+    public ImageView imageButton1;
+    public ImageView imageButton2;
+    public ImageView imageButton3;
+    public ImageView imageButton4;
+    String textServer = "server";
+    String textVR = "VR";
+    String nol;
     int counter;
     volatile boolean stopWorker;
     private static final UUID uuid = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
@@ -99,11 +122,77 @@ public class IndoorNavigation<TAG> extends AppCompatActivity implements OnMapRea
         Button openButton = (Button)findViewById(R.id.open);
         Button closeButton = (Button)findViewById(R.id.close);
         myLabel = (TextView)findViewById(R.id.label);
+        otpr = (TextView)findViewById(R.id.otpr);
+        vrNac = (Button) findViewById(R.id.vrNac);
+        serverNac = (Button) findViewById(R.id.server);
 
-        final ImageView imageButton1 = (ImageView) findViewById(R.id.Floor1);
-        final ImageView imageButton2 = (ImageView) findViewById(R.id.Floor2);
-        final ImageView imageButton3 = (ImageView) findViewById(R.id.Floor3);
-        final ImageView imageButton4 = (ImageView) findViewById(R.id.Floor4);
+        vrKon = (Button) findViewById(R.id.vrKon);
+        prepodavatelskayKon = (Button) findViewById(R.id.prepodavatelskayaKon);
+
+        prepodavatelskayKon2 = (Button) findViewById(R.id.prepodavatelskayaKon);
+
+        ImageView imageButton1 = (ImageView) findViewById(R.id.Floor1);
+        ImageView imageButton2 = (ImageView) findViewById(R.id.Floor2);
+        ImageView imageButton3 = (ImageView) findViewById(R.id.Floor3);
+        ImageView imageButton4 = (ImageView) findViewById(R.id.Floor4);
+
+        serverNac.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                otpr.setText(textServer);
+            }
+        });
+
+        vrNac.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                otpr.setText(textVR);
+            }
+        });
+
+        vrKon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                otpr2 = otpr.getText().toString();
+                if (otpr2 == textServer && flag){
+                    onMapReady6(mapboxMap);
+                    otpr.setText(nol);
+                }else if(otpr2 == textVR){
+                    Toast toast = Toast.makeText(getApplicationContext(), "Так нельзя простраивать маршрут!", Toast.LENGTH_SHORT);toast.show();
+                }else {
+                    Toast toast = Toast.makeText(getApplicationContext(), "Выберете начальную точку!", Toast.LENGTH_SHORT);toast.show();
+                }
+            }
+        });
+
+        prepodavatelskayKon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                otpr2 = otpr.getText().toString();
+                if (otpr2 == textVR && flag){
+                    onMapReady5(mapboxMap);
+                    otpr.setText(nol);
+                }else if(otpr2 == textServer && flag) {
+                    onMapReady7(mapboxMap);
+                    otpr.setText(nol);
+                }else {
+                    Toast toast = Toast.makeText(getApplicationContext(), "Выберете начальную точку!", Toast.LENGTH_SHORT);toast.show();
+                }
+            }
+        });
+
+//        serverNac.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                otpr2 = otpr.getText().toString();
+//                if (otpr2 == textServer && flag){
+//                    onMapReady7(mapboxMap);
+//                    otpr.setText(nol);
+//                }else {
+//                    Toast toast = Toast.makeText(getApplicationContext(), "Выберете начальную точку!", Toast.LENGTH_SHORT);toast.show();
+//                }
+//            }
+//        });
 
         imageButton1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -267,13 +356,69 @@ public class IndoorNavigation<TAG> extends AppCompatActivity implements OnMapRea
                                             tochka11();
                                             myLabel.setText(data);
 
+                                            data2 = data;
+
                                             switch (data) {
-                                                case ("166205241208"):
-                                                    tochka12();
+                                                case ("1692242104"):
+                                                    tochka1();
                                                     break;
-                                                case ("891701904"):
+                                                case ("1691511704"):
+                                                    tochka2();
+                                                    break;
+                                                case ("10286209209"):
+                                                    tochka3();
+                                                    break;
+                                                case ("57412204"):
+                                                    tochka4();
+                                                    break;
+                                                case ("5431214101"):
+                                                    tochka5();
+                                                    onMapReady3(mapboxMap);
+                                                    break;
+                                                case ("2171562004"):
+                                                    tochka6();
+                                                    break;
+                                                case ("2011261904"):
+                                                    tochka7();
+                                                    break;
+                                                case ("572161604"):
+                                                    tochka8();
+                                                    onMapReady(mapboxMap);
+                                                    break;
+                                                case ("412131604"):
+                                                    tochka9();
+                                                    break;
+                                                case ("86166248208"):
+                                                    tochka10();
+                                                    break;
+                                                case ("2331772304"):
                                                     tochka11();
                                                     break;
+                                                case ("252431704"):
+                                                    tochka13();
+                                                    break;
+                                                case ("1691292104"):
+                                                    tochka14();
+                                                    break;
+                                                case ("134207183245"):
+                                                    tochka15();
+                                                    break;
+                                                case ("86213211209"):
+                                                    tochka16();
+                                                    break;
+                                                case ("572362404"):
+                                                    tochka17();
+                                                    break;
+                                                case ("246131217209"):
+                                                    tochka18();
+                                                    onMapReady2(mapboxMap);
+                                                    break;
+                                                case ("2171971904"):
+                                                    tochka19();
+                                                    onMapReady4(mapboxMap);
+                                                    break;
+                                                    default:
+                                                        mapboxMap.clear();
                                             }
 
                                         }
@@ -298,6 +443,7 @@ public class IndoorNavigation<TAG> extends AppCompatActivity implements OnMapRea
         workerThread.start();
     }
 
+
     void closeBT() throws IOException
     {
         stopWorker = true;
@@ -307,30 +453,156 @@ public class IndoorNavigation<TAG> extends AppCompatActivity implements OnMapRea
         myLabel.setText("Bluetooth Closed");
     }
 
+    public String data2;
+
+    public void tochka1(){
+        mapboxMap.clear();
+        MarkerOptions options = new MarkerOptions();
+        options.position(new LatLng(54.736160, 20.491523));
+        mapboxMap.addMarker(options);
+
+    }
+    public void tochka2(){
+        mapboxMap.clear();
+        MarkerOptions options = new MarkerOptions();
+        options.position(new LatLng(54.736135, 20.491510));
+        mapboxMap.addMarker(options);
+    }
+
+    public void tochka3(){
+        mapboxMap.clear();
+        MarkerOptions options = new MarkerOptions();
+        options.position(new LatLng(54.736092, 20.491493));
+        mapboxMap.addMarker(options);
+    }
+
+    public void tochka4(){
+        mapboxMap.clear();
+        MarkerOptions options = new MarkerOptions();
+        options.position(new LatLng(54.736071, 20.491480));
+        mapboxMap.addMarker(options);
+    }
+
+    public void tochka5(){
+        mapboxMap.clear();
+        MarkerOptions options = new MarkerOptions();
+        options.position(new LatLng(54.736036, 20.491463));
+        mapboxMap.addMarker(options);
+    }
+
+    public void tochka6(){
+        mapboxMap.clear();
+        MarkerOptions options = new MarkerOptions();
+        options.position(new LatLng(54.736020, 20.491456));
+        mapboxMap.addMarker(options);
+    }
+
+    public void tochka7(){
+        mapboxMap.clear();
+        MarkerOptions options = new MarkerOptions();
+        options.position(new LatLng(54.735990, 20.491443));
+        mapboxMap.addMarker(options);
+    }
+
+    public void tochka8() {
+        mapboxMap.clear();
+        MarkerOptions options = new MarkerOptions();
+        options.position(new LatLng(54.735967, 20.491426));
+        mapboxMap.addMarker(options);
+
+            routeCoordinates = new ArrayList<>();
+            routeCoordinates.add(Point.fromLngLat(20.491480, 54.736071));
+            routeCoordinates.add(Point.fromLngLat( 20.491392, 54.736093));
+            routeCoordinates.add(Point.fromLngLat(20.490940, 54.736158));
+    }
+
+    public void tochka9(){
+        mapboxMap.clear();
+        MarkerOptions options = new MarkerOptions();
+        options.position(new LatLng(54.735936, 20.491413));
+        mapboxMap.addMarker(options);
+    }
+
+    public void tochka10(){
+        mapboxMap.clear();
+        MarkerOptions options = new MarkerOptions();
+        options.position(new LatLng(54.735908, 20.491403));
+        mapboxMap.addMarker(options);
+    }
+
+    public void tochka11(){
+        mapboxMap.clear();
+        MarkerOptions options = new MarkerOptions();
+        options.position(new LatLng(54.735919, 20.491303));
+        mapboxMap.addMarker(options);
+    }
+
+    public void tochka12(){
+        mapboxMap.clear();
+        MarkerOptions options = new MarkerOptions();
+        options.position(new LatLng(54.735965, 20.491314));
+        mapboxMap.addMarker(options);
+    }
+
+    public void tochka13(){
+        mapboxMap.clear();
+        MarkerOptions options = new MarkerOptions();
+        options.position(new LatLng(54.736093, 20.491392));
+        mapboxMap.addMarker(options);
+
+            routeCoordinates = new ArrayList<>();
+            routeCoordinates.add(Point.fromLngLat( 20.491392, 54.736093));
+            routeCoordinates.add(Point.fromLngLat(20.490940, 54.736158));
+    }
+
+    public void tochka14(){
+        mapboxMap.clear();
+        MarkerOptions options = new MarkerOptions();
+        options.position(new LatLng(54.736104, 20.491309));
+        mapboxMap.addMarker(options);
+    }
+
+    public void tochka15(){
+        mapboxMap.clear();
+        MarkerOptions options = new MarkerOptions();
+        options.position(new LatLng(54.736116, 20.491220));
+        mapboxMap.addMarker(options);
+    }
+
+    public void tochka16(){
+        mapboxMap.clear();
+        MarkerOptions options = new MarkerOptions();
+        options.position(new LatLng(54.736130, 20.491137));
+        mapboxMap.addMarker(options);
+    }
+
+    public void tochka17(){
+        mapboxMap.clear();
+        MarkerOptions options = new MarkerOptions();
+        options.position(new LatLng(54.736138, 20.491065));
+        mapboxMap.addMarker(options);
+    }
+
+    public void tochka18(){
+        mapboxMap.clear();
+        MarkerOptions options = new MarkerOptions();
+        options.position(new LatLng(54.736148, 20.490999));
+        mapboxMap.addMarker(options);
+    }
+
+    public void tochka19(){
+        mapboxMap.clear();
+        MarkerOptions options = new MarkerOptions();
+        options.position(new LatLng(54.736158, 20.490940));
+        mapboxMap.addMarker(options);
+    }
+
     public void onMapReady4(@NonNull final MapboxMap mapboxMap) {
         this.mapboxMap = mapboxMap;
         mapboxMap.setStyle(getString(R.string.kvant4), new Style.OnStyleLoaded() {
             @Override
             public void onStyleLoaded(@NonNull Style style) {
 
-                initRouteCoordinates();
-
-// Create the LineString from the list of coordinates and then make a GeoJSON
-// FeatureCollection so we can add the line to our map as a layer.
-                style.addSource(new GeoJsonSource("line-source",
-                        FeatureCollection.fromFeatures(new Feature[]{Feature.fromGeometry(
-                                LineString.fromLngLats(routeCoordinates)
-                        )})));
-
-// The layer properties for our line. This is where we make the line dotted, set the
-// color, etc.
-                style.addLayer(new LineLayer("linelayer", "line-source").withProperties(
-                        PropertyFactory.lineDasharray(new Float[]{0.01f, 2f}),
-                        PropertyFactory.lineCap(Property.LINE_CAP_ROUND),
-                        PropertyFactory.lineJoin(Property.LINE_JOIN_ROUND),
-                        PropertyFactory.lineWidth(5f),
-                        PropertyFactory.lineColor(Color.parseColor("#e55e5e"))
-                ));
             }
         });
     }
@@ -341,24 +613,6 @@ public class IndoorNavigation<TAG> extends AppCompatActivity implements OnMapRea
             @Override
             public void onStyleLoaded(@NonNull Style style) {
 
-                initRouteCoordinates();
-
-// Create the LineString from the list of coordinates and then make a GeoJSON
-// FeatureCollection so we can add the line to our map as a layer.
-                style.addSource(new GeoJsonSource("line-source",
-                        FeatureCollection.fromFeatures(new Feature[]{Feature.fromGeometry(
-                                LineString.fromLngLats(routeCoordinates)
-                        )})));
-
-// The layer properties for our line. This is where we make the line dotted, set the
-// color, etc.
-                style.addLayer(new LineLayer("linelayer", "line-source").withProperties(
-                        PropertyFactory.lineDasharray(new Float[]{0.01f, 2f}),
-                        PropertyFactory.lineCap(Property.LINE_CAP_ROUND),
-                        PropertyFactory.lineJoin(Property.LINE_JOIN_ROUND),
-                        PropertyFactory.lineWidth(5f),
-                        PropertyFactory.lineColor(Color.parseColor("#e55e5e"))
-                ));
             }
         });
     }
@@ -369,40 +623,8 @@ public class IndoorNavigation<TAG> extends AppCompatActivity implements OnMapRea
             @Override
             public void onStyleLoaded(@NonNull Style style) {
 
-                initRouteCoordinates();
-
-// Create the LineString from the list of coordinates and then make a GeoJSON
-// FeatureCollection so we can add the line to our map as a layer.
-                style.addSource(new GeoJsonSource("line-source",
-                        FeatureCollection.fromFeatures(new Feature[]{Feature.fromGeometry(
-                                LineString.fromLngLats(routeCoordinates)
-                        )})));
-
-// The layer properties for our line. This is where we make the line dotted, set the
-// color, etc.
-                style.addLayer(new LineLayer("linelayer", "line-source").withProperties(
-                        PropertyFactory.lineDasharray(new Float[]{0.01f, 2f}),
-                        PropertyFactory.lineCap(Property.LINE_CAP_ROUND),
-                        PropertyFactory.lineJoin(Property.LINE_JOIN_ROUND),
-                        PropertyFactory.lineWidth(5f),
-                        PropertyFactory.lineColor(Color.parseColor("#e55e5e"))
-                ));
             }
         });
-    }
-
-    public void tochka11(){
-            mapboxMap.clear();
-            MarkerOptions options = new MarkerOptions();
-            options.position(new LatLng(54.736301, 20.491550));
-            mapboxMap.addMarker(options);
-
-    }
-    public void tochka12(){
-        mapboxMap.clear();
-        MarkerOptions options = new MarkerOptions();
-        options.position(new LatLng(54.735914, 20.491454));
-        mapboxMap.addMarker(options);
     }
 
 
@@ -415,35 +637,131 @@ public class IndoorNavigation<TAG> extends AppCompatActivity implements OnMapRea
                 @Override
                 public void onStyleLoaded(@NonNull Style style) {
 
-                    initRouteCoordinates();
 
-    // Create the LineString from the list of coordinates and then make a GeoJSON
-    // FeatureCollection so we can add the line to our map as a layer.
-                    style.addSource(new GeoJsonSource("line-source",
-                            FeatureCollection.fromFeatures(new Feature[]{Feature.fromGeometry(
-                                    LineString.fromLngLats(routeCoordinates)
-                            )})));
-
-    // The layer properties for our line. This is where we make the line dotted, set the
-    // color, etc.
-                    style.addLayer(new LineLayer("linelayer", "line-source").withProperties(
-                            PropertyFactory.lineDasharray(new Float[]{0.01f, 2f}),
-                            PropertyFactory.lineCap(Property.LINE_CAP_ROUND),
-                            PropertyFactory.lineJoin(Property.LINE_JOIN_ROUND),
-                            PropertyFactory.lineWidth(5f),
-                            PropertyFactory.lineColor(Color.parseColor("#e55e5e"))
-                    ));
                 }
             });
     }
 
-    private void initRouteCoordinates() {
-// Create a list to store our line coordinates.
-        routeCoordinates = new ArrayList<>();
-        routeCoordinates.add(Point.fromLngLat(20.491051148290637, 54.73608038516162));
-        routeCoordinates.add(Point.fromLngLat(20.491018129381587, 54.73608109627289));
-        routeCoordinates.add(Point.fromLngLat(20.49104876741069, 54.73602434063259));
+    public void onMapReady5(@NonNull final MapboxMap mapboxMap) {
+        this.mapboxMap = mapboxMap;
+
+        mapboxMap.setStyle(getString(R.string.kvant4), new Style.OnStyleLoaded() {
+            @Override
+            public void onStyleLoaded(@NonNull Style style) {
+
+                initRouteCoordinates();
+
+                // Create the LineString from the list of coordinates and then make a GeoJSON
+                // FeatureCollection so we can add the line to our map as a layer.
+                style.addSource(new GeoJsonSource("line-source",
+                        FeatureCollection.fromFeatures(new Feature[]{Feature.fromGeometry(
+                                LineString.fromLngLats(routeCoordinates)
+                        )})));
+
+                // The layer properties for our line. This is where we make the line dotted, set the
+                // color, etc.
+                style.addLayer(new LineLayer("linelayer", "line-source").withProperties(
+                        PropertyFactory.lineDasharray(new Float[]{0.01f, 2f}),
+                        PropertyFactory.lineCap(Property.LINE_CAP_ROUND),
+                        PropertyFactory.lineJoin(Property.LINE_JOIN_ROUND),
+                        PropertyFactory.lineWidth(5f),
+                        PropertyFactory.lineColor(Color.parseColor("#e55e5e"))
+                ));
+            }
+        });
     }
+
+    public void onMapReady6(@NonNull final MapboxMap mapboxMap) {
+        this.mapboxMap = mapboxMap;
+
+        mapboxMap.setStyle(getString(R.string.kvant4), new Style.OnStyleLoaded() {
+            @Override
+            public void onStyleLoaded(@NonNull Style style) {
+
+                initRouteCoordinates2();
+
+                // Create the LineString from the list of coordinates and then make a GeoJSON
+                // FeatureCollection so we can add the line to our map as a layer.
+                style.addSource(new GeoJsonSource("line-source",
+                        FeatureCollection.fromFeatures(new Feature[]{Feature.fromGeometry(
+                                LineString.fromLngLats(routeCoordinates)
+                        )})));
+
+                // The layer properties for our line. This is where we make the line dotted, set the
+                // color, etc.
+                style.addLayer(new LineLayer("linelayer", "line-source").withProperties(
+                        PropertyFactory.lineDasharray(new Float[]{0.01f, 2f}),
+                        PropertyFactory.lineCap(Property.LINE_CAP_ROUND),
+                        PropertyFactory.lineJoin(Property.LINE_JOIN_ROUND),
+                        PropertyFactory.lineWidth(5f),
+                        PropertyFactory.lineColor(Color.parseColor("#e55e5e"))
+                ));
+            }
+        });
+    }
+
+    public void onMapReady7(@NonNull final MapboxMap mapboxMap) {
+        this.mapboxMap = mapboxMap;
+
+        mapboxMap.setStyle(getString(R.string.kvant4), new Style.OnStyleLoaded() {
+            @Override
+            public void onStyleLoaded(@NonNull Style style) {
+
+                initRouteCoordinates3();
+
+                // Create the LineString from the list of coordinates and then make a GeoJSON
+                // FeatureCollection so we can add the line to our map as a layer.
+                style.addSource(new GeoJsonSource("line-source",
+                        FeatureCollection.fromFeatures(new Feature[]{Feature.fromGeometry(
+                                LineString.fromLngLats(routeCoordinates)
+                        )})));
+
+                // The layer properties for our line. This is where we make the line dotted, set the
+                // color, etc.
+                style.addLayer(new LineLayer("linelayer", "line-source").withProperties(
+                        PropertyFactory.lineDasharray(new Float[]{0.01f, 2f}),
+                        PropertyFactory.lineCap(Property.LINE_CAP_ROUND),
+                        PropertyFactory.lineJoin(Property.LINE_JOIN_ROUND),
+                        PropertyFactory.lineWidth(5f),
+                        PropertyFactory.lineColor(Color.parseColor("#e55e5e"))
+                ));
+            }
+        });
+    }
+
+    public void initRouteCoordinates(){
+        routeCoordinates = new ArrayList<>();
+        routeCoordinates.add(Point.fromLngLat( 20.491065, 54.736138));
+        routeCoordinates.add(Point.fromLngLat(  20.491480, 54.736071));
+        routeCoordinates.add(Point.fromLngLat( 20.491443, 54.735990));
+        routeCoordinates.add(Point.fromLngLat(20.491403, 54.735908));
+        routeCoordinates.add(Point.fromLngLat( 20.491303, 54.735919));
+    }
+
+    public void initRouteCoordinates2(){
+        routeCoordinates = new ArrayList<>();
+        routeCoordinates.add(Point.fromLngLat(  20.491510, 54.736135));
+        routeCoordinates.add(Point.fromLngLat( 20.491493, 54.736092));
+        routeCoordinates.add(Point.fromLngLat(  20.491480, 54.736071));
+        routeCoordinates.add(Point.fromLngLat( 20.491065, 54.736138));
+    }
+
+    public void initRouteCoordinates3(){
+        routeCoordinates = new ArrayList<>();
+        routeCoordinates.add(Point.fromLngLat( 20.491510, 54.736135));
+        routeCoordinates.add(Point.fromLngLat( 20.491493, 54.736092));
+        routeCoordinates.add(Point.fromLngLat( 20.491403, 54.735908));
+        routeCoordinates.add(Point.fromLngLat( 20.491303, 54.735919));
+
+    }
+
+
+//    private void initRouteCoordinates2() {
+//// Create a list to store our line coordinates.
+//        routeCoordinates = new ArrayList<>();
+//        routeCoordinates.add(Point.fromLngLat( 20.491392, 54.736093));
+//        routeCoordinates.add(Point.fromLngLat(20.490940, 54.736158));
+//    }
 
     @Override
     public void onResume() {
@@ -516,8 +834,6 @@ public class IndoorNavigation<TAG> extends AppCompatActivity implements OnMapRea
         Intent panel = new Intent(IndoorNavigation.this, PopActivity.class);
         startActivity(panel);
     }
-
-
 }
     
 //        //based on java.util.UUID

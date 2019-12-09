@@ -18,6 +18,34 @@
         app:layout_constraintHorizontal_bias="0.96"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.01" />
+        app:layout_constraintVertical_bias="0.01"/>
+
+    <Button
+        android:id="@+id/btnOtprServer"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:text="Serv"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0."
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.01"/>
+
+    <Button
+        android:id="@+id/btnPribrPrepod"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:text="Prepo"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.01"/>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

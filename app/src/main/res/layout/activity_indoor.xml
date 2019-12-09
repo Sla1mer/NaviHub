@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".examples.styles.IndoorNavigation">
 
@@ -43,6 +44,104 @@
         mapbox:layout_constraintTop_toTopOf="parent"
         mapbox:layout_constraintBottom_toBottomOf="parent"/>
 
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#4264fb"
+        mapbox:layout_constraintHorizontal_bias="0.9"
+        mapbox:layout_constraintVertical_bias="0.95"
+        mapbox:layout_constraintLeft_toLeftOf="parent"
+        mapbox:layout_constraintRight_toRightOf="parent"
+        mapbox:layout_constraintTop_toTopOf="parent"
+        mapbox:layout_constraintBottom_toBottomOf="parent"/>
+
+    <ScrollView
+        android:id="@+id/scrollNach"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        mapbox:layout_constraintHorizontal_bias="0.3"
+        mapbox:layout_constraintVertical_bias="0.945"
+        mapbox:layout_constraintLeft_toLeftOf="parent"
+        mapbox:layout_constraintRight_toRightOf="parent"
+        mapbox:layout_constraintTop_toTopOf="parent"
+        mapbox:layout_constraintBottom_toBottomOf="parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/server"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Серверная"
+                android:textSize="9sp"
+                mapbox:layout_constraintBottom_toBottomOf="parent"
+                mapbox:layout_constraintHorizontal_bias="0.3"
+                mapbox:layout_constraintLeft_toLeftOf="parent"
+                mapbox:layout_constraintRight_toRightOf="parent"
+                mapbox:layout_constraintTop_toTopOf="parent"
+                mapbox:layout_constraintVertical_bias="0.945" />
+
+            <Button
+                android:id="@+id/vrNac"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="VR"
+                mapbox:layout_constraintBottom_toBottomOf="parent"
+                mapbox:layout_constraintHorizontal_bias="0.3"
+                mapbox:layout_constraintLeft_toLeftOf="parent"
+                mapbox:layout_constraintRight_toRightOf="parent"
+                mapbox:layout_constraintTop_toTopOf="parent"
+                mapbox:layout_constraintVertical_bias="0.945" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <ScrollView
+        android:id="@+id/scrollKon"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        mapbox:layout_constraintHorizontal_bias="0.7"
+        mapbox:layout_constraintVertical_bias="0.945"
+        mapbox:layout_constraintLeft_toLeftOf="parent"
+        mapbox:layout_constraintRight_toRightOf="parent"
+        mapbox:layout_constraintTop_toTopOf="parent"
+        mapbox:layout_constraintBottom_toBottomOf="parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/vrKon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="VR"
+                mapbox:layout_constraintBottom_toBottomOf="parent"
+                mapbox:layout_constraintHorizontal_bias="0.3"
+                mapbox:layout_constraintLeft_toLeftOf="parent"
+                mapbox:layout_constraintRight_toRightOf="parent"
+                mapbox:layout_constraintTop_toTopOf="parent"
+                mapbox:layout_constraintVertical_bias="0.945" />
+
+            <Button
+                android:id="@+id/prepodavatelskayaKon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Преподавательская"
+                android:textSize="5sp"
+                mapbox:layout_constraintBottom_toBottomOf="parent"
+                mapbox:layout_constraintHorizontal_bias="0.3"
+                mapbox:layout_constraintLeft_toLeftOf="parent"
+                mapbox:layout_constraintRight_toRightOf="parent"
+                mapbox:layout_constraintTop_toTopOf="parent"
+                mapbox:layout_constraintVertical_bias="0.945" />
+
+        </LinearLayout>
+    </ScrollView>
+
     <Button
         android:id="@+id/infoPanel"
         android:layout_width="80dp"
@@ -57,11 +156,16 @@
         mapbox:layout_constraintTop_toTopOf="parent"
         mapbox:layout_constraintBottom_toBottomOf="parent"/>
 
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+    <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        tools:ignore="TextFields,HardcodedText" >
+        tools:ignore="TextFields,HardcodedText"
+        mapbox:layout_constraintHorizontal_bias="0.9"
+        mapbox:layout_constraintVertical_bias="0.95"
+        mapbox:layout_constraintLeft_toLeftOf="parent"
+        mapbox:layout_constraintRight_toRightOf="parent"
+        mapbox:layout_constraintTop_toTopOf="parent"
+        mapbox:layout_constraintBottom_toBottomOf="parent">
 
 
         <TextView
@@ -77,6 +181,33 @@
             android:layout_alignParentRight="true"
             android:layout_marginLeft="10dip"
             android:text="Open" />
+
+<!--        <Button-->
+<!--            android:id="@+id/vr"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_alignParentRight="true"-->
+<!--            android:layout_marginLeft="10dip"-->
+<!--            android:layout_marginTop="50dp"-->
+<!--            android:text="VR" />-->
+
+<!--        <Button-->
+<!--            android:id="@+id/server"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_alignParentRight="true"-->
+<!--            android:layout_marginRight="100dp"-->
+<!--            android:layout_marginTop="50dp"-->
+<!--            android:text="Server" />-->
+
+        <TextView
+            android:id="@+id/otpr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="300dp"
+            android:layout_marginTop="100dp" />
+
 
         <Button
             android:id="@+id/send"
