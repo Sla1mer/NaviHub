@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Bundle;
 
@@ -199,11 +200,6 @@ public class IndoorNavigation<TAG> extends AppCompatActivity implements OnMapRea
                 // меняем изображение на кнопке
                 if (flag) {
                     onMapReady(mapboxMap);
-                    imageButton2.setImageResource(R.drawable.etaj2);
-                    imageButton1.setImageResource(R.drawable.etaj_button1);
-                    imageButton3.setImageResource(R.drawable.etaj3);
-                    imageButton4.setImageResource(R.drawable.etaj4);
-
                 }
             }
         });
@@ -213,11 +209,6 @@ public class IndoorNavigation<TAG> extends AppCompatActivity implements OnMapRea
                 // меняем изображение на кнопке
                 if (flag) {
                     onMapReady2(mapboxMap);
-                    imageButton2.setImageResource(R.drawable.etaj_button2);
-                    imageButton1.setImageResource(R.drawable.vniz1etaj);
-                    imageButton3.setImageResource(R.drawable.etaj3);
-                    imageButton4.setImageResource(R.drawable.etaj4);
-
                 }
             }
         });
@@ -227,10 +218,6 @@ public class IndoorNavigation<TAG> extends AppCompatActivity implements OnMapRea
                 // меняем изображение на кнопке
                 if (flag) {
                     onMapReady3(mapboxMap);
-                    imageButton3.setImageResource(R.drawable.etaj_button3);
-                    imageButton2.setImageResource(R.drawable.vniz2etaj);
-                    imageButton1.setImageResource(R.drawable.vniz1etaj);
-                    imageButton4.setImageResource(R.drawable.etaj4);
                 }
             }
         });
@@ -240,11 +227,6 @@ public class IndoorNavigation<TAG> extends AppCompatActivity implements OnMapRea
                 // меняем изображение на кнопке
                 if (flag) {
                     onMapReady4(mapboxMap);
-                    imageButton3.setImageResource(R.drawable.vniz3etaj);
-                    imageButton2.setImageResource(R.drawable.vniz2etaj);
-                    imageButton1.setImageResource(R.drawable.vniz1etaj);
-                    imageButton4.setImageResource(R.drawable.etaj_button4);
-
                 }
             }
         });
@@ -453,6 +435,8 @@ public class IndoorNavigation<TAG> extends AppCompatActivity implements OnMapRea
         myLabel.setText("Bluetooth Closed");
     }
 
+
+
     public String data2;
 
     public void tochka1(){
@@ -602,7 +586,8 @@ public class IndoorNavigation<TAG> extends AppCompatActivity implements OnMapRea
         mapboxMap.setStyle(getString(R.string.kvant4), new Style.OnStyleLoaded() {
             @Override
             public void onStyleLoaded(@NonNull Style style) {
-
+                Bitmap bm = BitmapFactory.decodeResource(getResources(), R.drawable.chelik);
+                mapboxMap.getStyle().addImage("my-marker",bm);
             }
         });
     }
@@ -612,6 +597,8 @@ public class IndoorNavigation<TAG> extends AppCompatActivity implements OnMapRea
         mapboxMap.setStyle(getString(R.string.kvant2), new Style.OnStyleLoaded() {
             @Override
             public void onStyleLoaded(@NonNull Style style) {
+                Bitmap bm = BitmapFactory.decodeResource(getResources(), R.drawable.chelik);
+                mapboxMap.getStyle().addImage("my-marker",bm);
 
             }
         });
@@ -622,6 +609,8 @@ public class IndoorNavigation<TAG> extends AppCompatActivity implements OnMapRea
         mapboxMap.setStyle(getString(R.string.kvant3), new Style.OnStyleLoaded() {
             @Override
             public void onStyleLoaded(@NonNull Style style) {
+                Bitmap bm = BitmapFactory.decodeResource(getResources(), R.drawable.chelik);
+                mapboxMap.getStyle().addImage("my-marker",bm);
 
             }
         });
@@ -636,6 +625,8 @@ public class IndoorNavigation<TAG> extends AppCompatActivity implements OnMapRea
             mapboxMap.setStyle(getString(R.string.kvant1), new Style.OnStyleLoaded() {
                 @Override
                 public void onStyleLoaded(@NonNull Style style) {
+                    Bitmap bm = BitmapFactory.decodeResource(getResources(), R.drawable.chelik);
+                    mapboxMap.getStyle().addImage("my-marker",bm);
 
 
                 }
@@ -648,6 +639,8 @@ public class IndoorNavigation<TAG> extends AppCompatActivity implements OnMapRea
         mapboxMap.setStyle(getString(R.string.kvant4), new Style.OnStyleLoaded() {
             @Override
             public void onStyleLoaded(@NonNull Style style) {
+                Bitmap bm = BitmapFactory.decodeResource(getResources(), R.drawable.chelik);
+                mapboxMap.getStyle().addImage("my-marker",bm);
 
                 initRouteCoordinates();
 
@@ -677,6 +670,8 @@ public class IndoorNavigation<TAG> extends AppCompatActivity implements OnMapRea
         mapboxMap.setStyle(getString(R.string.kvant4), new Style.OnStyleLoaded() {
             @Override
             public void onStyleLoaded(@NonNull Style style) {
+                Bitmap bm = BitmapFactory.decodeResource(getResources(), R.drawable.chelik);
+                mapboxMap.getStyle().addImage("my-marker",bm);
 
                 initRouteCoordinates2();
 

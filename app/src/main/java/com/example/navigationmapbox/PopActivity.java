@@ -26,13 +26,14 @@ public class PopActivity extends Activity {
             }
         });
 
-        DisplayMetrics dm  = new DisplayMetrics();
+
+        DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);
 
         int wight = dm.widthPixels;
         int height = dm.heightPixels;
 
-        getWindow().setLayout((int)(wight*.9), (int)(height*.8));
+        getWindow().setLayout((int)(wight*.9),  (int)(height*.7));
 
         WindowManager.LayoutParams params = getWindow().getAttributes();
         params.gravity = Gravity.CENTER;

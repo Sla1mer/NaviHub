@@ -4,7 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".examples.styles.IndoorNavigation">
+    tools:context=".examples.styles.IndoorNavigation"
+    android:orientation="vertical"
+    android:screenOrientation="portrait">
 
 
     <com.mapbox.mapboxsdk.maps.MapView
@@ -13,13 +15,12 @@
         android:layout_height="match_parent"
         mapbox:mapbox_cameraTargetLat="54.736125"
         mapbox:mapbox_cameraTargetLng="20.491273"
-        mapbox:mapbox_cameraZoom="19">
-    </com.mapbox.mapboxsdk.maps.MapView>
+        mapbox:mapbox_cameraZoom="18"></com.mapbox.mapboxsdk.maps.MapView>
 
     <Button
         android:id="@+id/startButton2"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:background="@drawable/repeat1"
         android:onClick="onMyButtonClick"
         android:textColor="@color/mapboxWhite"
@@ -32,10 +33,10 @@
 
     <Button
         android:id="@+id/infoPanel"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:background="@drawable/info"
-        android:onClick="onMyButtonClick"
+        android:onClick="onMyButtonClickPanel"
         android:textColor="@color/mapboxWhite"
         mapbox:layout_constraintHorizontal_bias="0.03"
         mapbox:layout_constraintVertical_bias="0.96"
@@ -46,11 +47,11 @@
 
     <ImageView
         android:id="@+id/Floor1"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:background="@drawable/etaj_button1"
-        mapbox:layout_constraintHorizontal_bias="0.96"
-        mapbox:layout_constraintVertical_bias="0.3"
+        mapbox:layout_constraintHorizontal_bias="0.1"
+        mapbox:layout_constraintVertical_bias="0.88"
         mapbox:layout_constraintLeft_toLeftOf="parent"
         mapbox:layout_constraintRight_toRightOf="parent"
         mapbox:layout_constraintTop_toTopOf="parent"
@@ -58,11 +59,11 @@
 
     <ImageView
         android:id="@+id/Floor2"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:background="@drawable/etaj2"
-        mapbox:layout_constraintHorizontal_bias="0.96"
-        mapbox:layout_constraintVertical_bias="0.42"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@drawable/etaj_button2"
+        mapbox:layout_constraintHorizontal_bias="0.36"
+        mapbox:layout_constraintVertical_bias="0.88"
         mapbox:layout_constraintLeft_toLeftOf="parent"
         mapbox:layout_constraintRight_toRightOf="parent"
         mapbox:layout_constraintTop_toTopOf="parent"
@@ -70,11 +71,11 @@
 
     <ImageView
         android:id="@+id/Floor3"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:background="@drawable/etaj3"
-        mapbox:layout_constraintHorizontal_bias="0.96"
-        mapbox:layout_constraintVertical_bias="0.54"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@drawable/etaj_button3"
+        mapbox:layout_constraintHorizontal_bias="0.61"
+        mapbox:layout_constraintVertical_bias="0.88"
         mapbox:layout_constraintLeft_toLeftOf="parent"
         mapbox:layout_constraintRight_toRightOf="parent"
         mapbox:layout_constraintTop_toTopOf="parent"
@@ -82,11 +83,11 @@
 
     <ImageView
         android:id="@+id/Floor4"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:background="@drawable/etaj4"
-        mapbox:layout_constraintHorizontal_bias="0.96"
-        mapbox:layout_constraintVertical_bias="0.66"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@drawable/etaj_button4"
+        mapbox:layout_constraintHorizontal_bias="0.85"
+        mapbox:layout_constraintVertical_bias="0.88"
         mapbox:layout_constraintLeft_toLeftOf="parent"
         mapbox:layout_constraintRight_toRightOf="parent"
         mapbox:layout_constraintTop_toTopOf="parent"
@@ -94,21 +95,45 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="90dp"
         android:background="#4264fb"
         mapbox:layout_constraintHorizontal_bias="0.9"
-        mapbox:layout_constraintVertical_bias="0.95"
+        mapbox:layout_constraintVertical_bias="0.965"
         mapbox:layout_constraintLeft_toLeftOf="parent"
         mapbox:layout_constraintRight_toRightOf="parent"
         mapbox:layout_constraintTop_toTopOf="parent"
         mapbox:layout_constraintBottom_toBottomOf="parent"/>
 
+    <TextView
+        android:id="@+id/where_from"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Where_from"
+        mapbox:layout_constraintBottom_toBottomOf="parent"
+        mapbox:layout_constraintHorizontal_bias="0.33"
+        mapbox:layout_constraintLeft_toLeftOf="parent"
+        mapbox:layout_constraintRight_toRightOf="parent"
+        mapbox:layout_constraintTop_toTopOf="parent"
+        mapbox:layout_constraintVertical_bias="0.91" />
+
+    <TextView
+        android:id="@+id/where"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Where"
+        mapbox:layout_constraintBottom_toBottomOf="parent"
+        mapbox:layout_constraintHorizontal_bias="0.668"
+        mapbox:layout_constraintLeft_toLeftOf="parent"
+        mapbox:layout_constraintRight_toRightOf="parent"
+        mapbox:layout_constraintTop_toTopOf="parent"
+        mapbox:layout_constraintVertical_bias="0.91" />
+
     <ScrollView
         android:id="@+id/scrollNach"
-        android:layout_width="80dp"
-        android:layout_height="40dp"
+        android:layout_width="160dp"
+        android:layout_height="70dp"
         mapbox:layout_constraintHorizontal_bias="0.3"
-        mapbox:layout_constraintVertical_bias="0.945"
+        mapbox:layout_constraintVertical_bias="0.96"
         mapbox:layout_constraintLeft_toLeftOf="parent"
         mapbox:layout_constraintRight_toRightOf="parent"
         mapbox:layout_constraintTop_toTopOf="parent"
@@ -120,10 +145,10 @@
 
             <Button
                 android:id="@+id/server"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="160dp"
+                android:layout_height="75dp"
                 android:text="Серверная"
-                android:textSize="9sp"
+                android:textSize="10sp"
                 mapbox:layout_constraintBottom_toBottomOf="parent"
                 mapbox:layout_constraintHorizontal_bias="0.3"
                 mapbox:layout_constraintLeft_toLeftOf="parent"
@@ -133,8 +158,8 @@
 
             <Button
                 android:id="@+id/vrNac"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="160dp"
+                android:layout_height="75dp"
                 android:text="VR"
                 mapbox:layout_constraintBottom_toBottomOf="parent"
                 mapbox:layout_constraintHorizontal_bias="0.3"
@@ -148,10 +173,10 @@
 
     <ScrollView
         android:id="@+id/scrollKon"
-        android:layout_width="80dp"
-        android:layout_height="40dp"
+        android:layout_width="160dp"
+        android:layout_height="75dp"
         mapbox:layout_constraintHorizontal_bias="0.7"
-        mapbox:layout_constraintVertical_bias="0.945"
+        mapbox:layout_constraintVertical_bias="0.965"
         mapbox:layout_constraintLeft_toLeftOf="parent"
         mapbox:layout_constraintRight_toRightOf="parent"
         mapbox:layout_constraintTop_toTopOf="parent"
@@ -163,8 +188,8 @@
 
             <Button
                 android:id="@+id/vrKon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="160dp"
+                android:layout_height="75dp"
                 android:text="VR"
                 mapbox:layout_constraintBottom_toBottomOf="parent"
                 mapbox:layout_constraintHorizontal_bias="0.3"
@@ -175,8 +200,8 @@
 
             <Button
                 android:id="@+id/prepodavatelskayaKon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="160dp"
+                android:layout_height="75dp"
                 android:text="Преподавательская"
                 android:textSize="5sp"
                 mapbox:layout_constraintBottom_toBottomOf="parent"
@@ -189,8 +214,7 @@
         </LinearLayout>
     </ScrollView>
 
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:ignore="TextFields,HardcodedText" >
@@ -201,23 +225,23 @@
             android:layout_height="wrap_content"
             android:text="Type here:"/>
 
-<!--        <Button-->
-<!--            android:id="@+id/vr"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_alignParentRight="true"-->
-<!--            android:layout_marginLeft="10dip"-->
-<!--            android:layout_marginTop="50dp"-->
-<!--            android:text="VR" />-->
+        <!--        <Button-->
+        <!--            android:id="@+id/vr"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_alignParentRight="true"-->
+        <!--            android:layout_marginLeft="10dip"-->
+        <!--            android:layout_marginTop="50dp"-->
+        <!--            android:text="VR" />-->
 
-<!--        <Button-->
-<!--            android:id="@+id/server"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_alignParentRight="true"-->
-<!--            android:layout_marginRight="100dp"-->
-<!--            android:layout_marginTop="50dp"-->
-<!--            android:text="Server" />-->
+        <!--        <Button-->
+        <!--            android:id="@+id/server"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_alignParentRight="true"-->
+        <!--            android:layout_marginRight="100dp"-->
+        <!--            android:layout_marginTop="50dp"-->
+        <!--            android:text="Server" />-->
 
         <TextView
             android:id="@+id/otpr"
@@ -227,22 +251,22 @@
             android:layout_marginRight="300dp"
             android:layout_marginTop="100dp" />
 
+
         <Button
             android:id="@+id/open"
-            android:layout_width="100dp"
-            android:layout_height="60dp"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_marginLeft="10dip"
             android:text="Open" />
 
         <Button
             android:id="@+id/close"
-            android:layout_width="100dp"
-            android:layout_height="60dp"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
             android:layout_alignTop="@id/open"
             android:layout_toLeftOf="@id/open"
             android:text="Close" />
 
     </RelativeLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

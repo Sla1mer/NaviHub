@@ -8,9 +8,8 @@
     <string name="kvant2">mapbox://styles/sla1merapk/ck2rfqi8m3eyd1cpao5nclahg</string>
     <string name="kvant3">mapbox://styles/sla1merapk/ck2rhnpgz0mwh1cl58zslu9xc</string>
     <string name="number2">166205241208</string>
+    <string name="Where_from">Откуда</string>
+    <string name="Where">Куда</string>
+    <string name="msg_switch_network">Разрешите доступ к данным о местоположении</string>
 
-    <string-array name="Spinner_items">
-        <item>Server</item>
-        <item>IT</item>
-    </string-array>
 </resources>
