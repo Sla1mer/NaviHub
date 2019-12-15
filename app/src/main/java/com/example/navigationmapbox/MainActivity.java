@@ -443,4 +443,9 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         Intent intent = new Intent(MainActivity.this, IndoorNavigation.class);
         startActivity(intent);
     }
+
+    public void onMyButtonClickPanel(View view) {
+        Intent panel = new Intent(MainActivity.this, PopActivity.class);
+        startActivity(panel);
+    }
 }

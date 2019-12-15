@@ -25,7 +25,7 @@
         android:onClick="onMyButtonClick"
         android:textColor="@color/mapboxWhite"
         android:layout_gravity="bottom|right"
-        android:layout_marginBottom="120dp"
+        android:layout_marginBottom="95dp"
         android:layout_marginRight="10dp"/>
 
     <Button
@@ -81,7 +81,7 @@
         android:background="@drawable/etaj_button2"
         android:layout_gravity="center|right"
         android:layout_marginRight="10dp"
-        android:layout_marginBottom="85dp"/>
+        android:layout_marginBottom="90dp"/>
 
     <ImageView
         android:id="@+id/Floor3"
@@ -90,7 +90,7 @@
         android:background="@drawable/etaj_button3"
         android:layout_gravity="center|right"
         android:layout_marginRight="10dp"
-        android:layout_marginBottom="20dp"/>
+        android:layout_marginBottom="30dp"/>
 
     <ImageView
         android:id="@+id/Floor4"
@@ -99,7 +99,7 @@
         android:background="@drawable/etaj_button4"
         android:layout_gravity="center|right"
         android:layout_marginRight="10dp"
-        android:layout_marginTop="47dp"/>
+        android:layout_marginTop="30dp"/>
 
     <View
         android:layout_width="match_parent"

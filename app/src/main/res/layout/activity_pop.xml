@@ -5,64 +5,218 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
-    <Button
-        android:id="@+id/btn_close"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        android:background="@drawable/error"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Подсказка"
+                android:textSize="30sp"
+                android:layout_gravity="top|center"
+                android:layout_marginTop="10dp"
+                android:textStyle="bold"/>
 
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.96"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.01"/>
+            <Button
+                android:id="@+id/btn_close"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:background="@drawable/error"
+                android:layout_gravity="right"
+                android:layout_margin="10dp"/>
 
 
-    <ImageView
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        android:background="@drawable/button_my_location"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.01"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.1"/>
+            <ImageView
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:background="@drawable/button_my_location"
+                android:layout_gravity="top|left"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="60dp"/>
 
-    <ImageView
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        android:background="@drawable/repeat1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.01"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.2"/>
+            <ImageView
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:background="@drawable/repeat1"
+                android:layout_gravity="top|left"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="110dp"/>
 
-    <TextView
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:text="- Определение вашего местоположения"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.48"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.115"/>
+            <ImageView
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:background="@drawable/button_search"
+                android:layout_gravity="top|left"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="160dp"/>
 
-    <TextView
-        android:layout_width="354dp"
-        android:layout_height="wrap_content"
-        android:text="- Переключение между уличной картой и внутренней"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.21"/>
-</FrameLayout>
+            <ImageView
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:background="@drawable/button_bluetooth_on"
+                android:layout_gravity="top|left"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="210dp"/>
+
+            <ImageView
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:background="@drawable/button_bluetooth_off"
+                android:layout_gravity="top|left"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="260dp"/>
+
+            <ImageView
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:background="@drawable/etaj_button1"
+                android:layout_gravity="top|left"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="310dp"/>
+
+            <ImageView
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:background="@drawable/etaj_button2"
+                android:layout_gravity="top|left"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="360dp"/>
+
+            <ImageView
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:background="@drawable/etaj_button3"
+                android:layout_gravity="top|left"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="410dp"/>
+
+            <ImageView
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:background="@drawable/etaj_button4"
+            android:layout_gravity="top|left"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="460dp"/>
+
+            <ImageView
+                android:layout_width="110dp"
+                android:layout_height="60dp"
+                android:background="@drawable/start"
+                android:layout_gravity="top|left"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="515dp"/>
+
+            <ImageView
+                android:layout_width="110dp"
+                android:layout_height="60dp"
+                android:background="@drawable/where"
+                android:layout_gravity="top|left"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="585dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="- Выбор конечной точки"
+                android:textSize="13sp"
+                android:layout_gravity="left|top"
+                android:layout_marginLeft="125dp"
+                android:layout_marginTop="610dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="- Выбор начальной точки"
+                android:textSize="13sp"
+                android:layout_gravity="left|top"
+                android:layout_marginLeft="125dp"
+                android:layout_marginTop="535dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="- Переключение на первый этаж в здании"
+                android:textSize="13sp"
+                android:layout_gravity="left|top"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="322dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="- Переключение на второй этаж в здании"
+                android:textSize="13sp"
+                android:layout_gravity="left|top"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="372dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="- Переключение на третий этаж в здании"
+                android:textSize="13sp"
+                android:layout_gravity="left|top"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="422dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="- Переключение на четвёртый этаж в здании"
+                android:textSize="13sp"
+                android:layout_gravity="left|top"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="472dp"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="- Поиск нужного вам места на улице"
+                android:textSize="13sp"
+                android:layout_gravity="left|top"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="170dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="- Подключение к устройству"
+                android:textSize="13sp"
+                android:layout_gravity="left|top"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="225dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="- Отключение от устройства"
+                android:textSize="13sp"
+                android:layout_gravity="left|top"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="273dp"/>
+
+            <TextView
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:text="- Определение вашего местоположения"
+                android:textSize="13sp"
+                android:layout_gravity="left|top"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="70dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="- Переключение между уличной и внутренней картой"
+                android:textSize="13sp"
+                android:layout_gravity="left|top"
+                android:layout_marginLeft="57dp"
+                android:layout_marginTop="123dp"/>
+        </FrameLayout>
+    </ScrollView>
+    </FrameLayout>

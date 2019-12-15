@@ -34,7 +34,7 @@ public class PopActivity extends Activity {
         int wight = dm.widthPixels;
         int height = dm.heightPixels;
 
-        getWindow().setLayout((int)(wight*.9),  (int)(height*.7));
+        getWindow().setLayout((int)(wight*.9),  (int)(height*.8));
 
         WindowManager.LayoutParams params = getWindow().getAttributes();
         params.gravity = Gravity.CENTER;
