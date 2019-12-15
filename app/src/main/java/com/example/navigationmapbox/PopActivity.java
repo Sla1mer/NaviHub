@@ -26,6 +26,7 @@ public class PopActivity extends Activity {
             }
         });
 
+        
 
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);

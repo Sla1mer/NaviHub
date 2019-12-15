@@ -86,8 +86,8 @@ public class IndoorNavigation<TAG> extends AppCompatActivity implements OnMapRea
     Button vrKon;
     Button prepodavatelskayKon;
     Button prepodavatelskayKon2;
-    TextView otpr;
-    String  otpr2;
+    public TextView otpr;
+    public String  otpr2;
     BluetoothAdapter mBluetoothAdapter;
     BluetoothSocket mmSocket;
     BluetoothDevice mmDevice;
@@ -106,10 +106,11 @@ public class IndoorNavigation<TAG> extends AppCompatActivity implements OnMapRea
     int counter;
     volatile boolean stopWorker;
     private static final UUID uuid = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
-//    String text1 = number.getText().toString();
+//    String text1 = number.getText().toString()
 
-
-
+    public void setServerNac(Button serverNac) {
+        this.serverNac = serverNac;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

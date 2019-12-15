@@ -276,7 +276,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                             new CameraPosition.Builder()
                                     .target(new LatLng(((Point) selectedCarmenFeature.geometry()).latitude(),
                                             ((Point) selectedCarmenFeature.geometry()).longitude()))
-                                    .zoom(14)
+                                    .zoom(17)
                                     .build()), 4000);
 
                     Toast toast = Toast.makeText(getApplicationContext(), "Коснитесь конечной точки, для построения маршрута!", Toast.LENGTH_SHORT);toast.show();
