@@ -148,25 +148,13 @@
                 android:layout_width="80dp"
                 android:layout_height="40dp"
                 android:text="Серверная"
-                android:textSize="10sp"
-                mapbox:layout_constraintBottom_toBottomOf="parent"
-                mapbox:layout_constraintHorizontal_bias="0.3"
-                mapbox:layout_constraintLeft_toLeftOf="parent"
-                mapbox:layout_constraintRight_toRightOf="parent"
-                mapbox:layout_constraintTop_toTopOf="parent"
-                mapbox:layout_constraintVertical_bias="0.945" />
+                android:textSize="10sp" />
 
             <Button
                 android:id="@+id/vrNac"
                 android:layout_width="80dp"
                 android:layout_height="40dp"
-                android:text="VR"
-                mapbox:layout_constraintBottom_toBottomOf="parent"
-                mapbox:layout_constraintHorizontal_bias="0.3"
-                mapbox:layout_constraintLeft_toLeftOf="parent"
-                mapbox:layout_constraintRight_toRightOf="parent"
-                mapbox:layout_constraintTop_toTopOf="parent"
-                mapbox:layout_constraintVertical_bias="0.945" />
+                android:text="VR" />
 
         </LinearLayout>
     </ScrollView>
@@ -187,26 +175,14 @@
                 android:id="@+id/vrKon"
                 android:layout_width="80dp"
                 android:layout_height="40dp"
-                android:text="VR"
-                mapbox:layout_constraintBottom_toBottomOf="parent"
-                mapbox:layout_constraintHorizontal_bias="0.3"
-                mapbox:layout_constraintLeft_toLeftOf="parent"
-                mapbox:layout_constraintRight_toRightOf="parent"
-                mapbox:layout_constraintTop_toTopOf="parent"
-                mapbox:layout_constraintVertical_bias="0.945" />
+                android:text="VR" />
 
             <Button
                 android:id="@+id/prepodavatelskayaKon"
                 android:layout_width="80dp"
                 android:layout_height="40dp"
                 android:text="Преподавательская"
-                android:textSize="5sp"
-                mapbox:layout_constraintBottom_toBottomOf="parent"
-                mapbox:layout_constraintHorizontal_bias="0.3"
-                mapbox:layout_constraintLeft_toLeftOf="parent"
-                mapbox:layout_constraintRight_toRightOf="parent"
-                mapbox:layout_constraintTop_toTopOf="parent"
-                mapbox:layout_constraintVertical_bias="0.945" />
+                android:textSize="5sp" />
 
         </LinearLayout>
     </ScrollView>
