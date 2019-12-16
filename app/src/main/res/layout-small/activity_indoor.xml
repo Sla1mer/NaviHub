@@ -19,19 +19,19 @@
 
     <Button
         android:id="@+id/startButton2"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
         android:background="@drawable/repeat1"
         android:onClick="onMyButtonClick"
         android:textColor="@color/mapboxWhite"
         android:layout_gravity="bottom|right"
-        android:layout_marginBottom="120dp"
+        android:layout_marginBottom="55dp"
         android:layout_marginRight="10dp"/>
 
     <Button
         android:id="@+id/infoPanel"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
         android:background="@drawable/info"
         android:onClick="onMyButtonClickPanel"
         android:textColor="@color/mapboxWhite"
@@ -48,62 +48,61 @@
 
     <Button
         android:id="@+id/open"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
         android:background="@drawable/button_bluetooth_on"
         android:layout_gravity="left|center"
-        android:layout_marginBottom="70dp"
+        android:layout_marginBottom="30dp"
         android:layout_marginLeft="10dp"/>
 
     <Button
         android:id="@+id/close"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
         android:background="@drawable/button_bluetooth_off"
         android:layout_gravity="left|center"
         android:layout_marginLeft="10dp"
-        android:layout_marginRight="100dp"
-        android:layout_marginTop="15dp"/>
+        android:layout_marginRight="100dp"/>
 
     <ImageView
         android:id="@+id/Floor1"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
         android:background="@drawable/etaj_button1"
-        android:layout_gravity="center|right"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="150dp"/>
-
-    <ImageView
-        android:id="@+id/Floor2"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:background="@drawable/etaj_button2"
         android:layout_gravity="center|right"
         android:layout_marginRight="10dp"
         android:layout_marginBottom="65dp"/>
 
     <ImageView
+        android:id="@+id/Floor2"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:background="@drawable/etaj_button2"
+        android:layout_gravity="center|right"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="35dp"/>
+
+    <ImageView
         android:id="@+id/Floor3"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
         android:background="@drawable/etaj_button3"
         android:layout_gravity="center|right"
         android:layout_marginRight="10dp"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginBottom="5dp"/>
 
     <ImageView
         android:id="@+id/Floor4"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
         android:background="@drawable/etaj_button4"
         android:layout_gravity="center|right"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="105dp"/>
+        android:layout_marginRight="38dp"
+        android:layout_marginBottom="5dp"/>
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="110dp"
+        android:layout_height="50dp"
         android:background="@color/informationPanel"
         android:layout_gravity="bottom|center" />
 
@@ -112,10 +111,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/Where_from"
-        android:textSize="25sp"
+        android:textSize="12sp"
         android:layout_gravity="bottom"
-        android:layout_marginBottom="70dp"
-        android:layout_marginLeft="65dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginBottom="35dp"
         android:textColor="#ffffff"
         android:textStyle="bold"
         />
@@ -125,21 +124,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/Where"
-        android:textSize="25sp"
+        android:textSize="12sp"
         android:textColor="#ffffff"
         android:layout_gravity="bottom|right"
-        android:layout_marginBottom="70dp"
-        android:layout_marginRight="85dp"
+        android:layout_marginBottom="35dp"
+        android:layout_marginRight="26dp"
         android:textStyle="bold"
         />
 
     <ScrollView
         android:id="@+id/scrollNach"
-        android:layout_width="120dp"
-        android:layout_height="60dp"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
         android:layout_gravity="bottom"
-        android:layout_marginLeft="50dp"
-        android:layout_marginBottom="10dp">
+        android:layout_marginBottom="2dp">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -147,8 +145,8 @@
 
             <Button
                 android:id="@+id/server"
-                android:layout_width="120dp"
-                android:layout_height="60dp"
+                android:layout_width="80dp"
+                android:layout_height="40dp"
                 android:text="Серверная"
                 android:textSize="10sp"
                 mapbox:layout_constraintBottom_toBottomOf="parent"
@@ -160,8 +158,8 @@
 
             <Button
                 android:id="@+id/vrNac"
-                android:layout_width="120dp"
-                android:layout_height="60dp"
+                android:layout_width="80dp"
+                android:layout_height="40dp"
                 android:text="VR"
                 mapbox:layout_constraintBottom_toBottomOf="parent"
                 mapbox:layout_constraintHorizontal_bias="0.3"
@@ -175,11 +173,10 @@
 
     <ScrollView
         android:id="@+id/scrollKon"
-        android:layout_width="120dp"
-        android:layout_height="60dp"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
         android:layout_gravity="bottom|right"
-        android:layout_marginRight="50dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="2dp"
         >
         <LinearLayout
             android:layout_width="match_parent"
@@ -188,8 +185,8 @@
 
             <Button
                 android:id="@+id/vrKon"
-                android:layout_width="120dp"
-                android:layout_height="60dp"
+                android:layout_width="80dp"
+                android:layout_height="40dp"
                 android:text="VR"
                 mapbox:layout_constraintBottom_toBottomOf="parent"
                 mapbox:layout_constraintHorizontal_bias="0.3"
@@ -200,8 +197,8 @@
 
             <Button
                 android:id="@+id/prepodavatelskayaKon"
-                android:layout_width="120dp"
-                android:layout_height="60dp"
+                android:layout_width="80dp"
+                android:layout_height="40dp"
                 android:text="Преподавательская"
                 android:textSize="5sp"
                 mapbox:layout_constraintBottom_toBottomOf="parent"

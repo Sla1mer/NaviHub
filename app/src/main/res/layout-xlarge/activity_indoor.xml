@@ -9,14 +9,6 @@
     android:screenOrientation="portrait">
 
 
-    <com.mapbox.mapboxsdk.maps.MapView
-        android:id="@+id/mapView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        mapbox:mapbox_cameraTargetLat="54.736125"
-        mapbox:mapbox_cameraTargetLng="20.491273"
-        mapbox:mapbox_cameraZoom="18"></com.mapbox.mapboxsdk.maps.MapView>
-
     <Button
         android:id="@+id/startButton2"
         android:layout_width="80dp"
@@ -25,7 +17,7 @@
         android:onClick="onMyButtonClick"
         android:textColor="@color/mapboxWhite"
         android:layout_gravity="bottom|right"
-        android:layout_marginBottom="120dp"
+        android:layout_marginBottom="160dp"
         android:layout_marginRight="10dp"/>
 
     <Button
@@ -103,7 +95,7 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="110dp"
+        android:layout_height="150dp"
         android:background="@color/informationPanel"
         android:layout_gravity="bottom|center" />
 
@@ -112,10 +104,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/Where_from"
-        android:textSize="25sp"
+        android:textSize="40sp"
         android:layout_gravity="bottom"
-        android:layout_marginBottom="70dp"
-        android:layout_marginLeft="65dp"
+        android:layout_marginBottom="105dp"
+        android:layout_marginLeft="80dp"
         android:textColor="#ffffff"
         android:textStyle="bold"
         />
@@ -125,21 +117,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/Where"
-        android:textSize="25sp"
+        android:textSize="40sp"
         android:textColor="#ffffff"
         android:layout_gravity="bottom|right"
-        android:layout_marginBottom="70dp"
-        android:layout_marginRight="85dp"
+        android:layout_marginBottom="105dp"
+        android:layout_marginRight="105dp"
         android:textStyle="bold"
         />
 
     <ScrollView
         android:id="@+id/scrollNach"
-        android:layout_width="120dp"
-        android:layout_height="60dp"
+        android:layout_width="200dp"
+        android:layout_height="90dp"
         android:layout_gravity="bottom"
         android:layout_marginLeft="50dp"
-        android:layout_marginBottom="10dp">
+        android:layout_marginBottom="20dp">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -147,39 +139,27 @@
 
             <Button
                 android:id="@+id/server"
-                android:layout_width="120dp"
-                android:layout_height="60dp"
+                android:layout_width="200dp"
+                android:layout_height="90dp"
                 android:text="Серверная"
-                android:textSize="10sp"
-                mapbox:layout_constraintBottom_toBottomOf="parent"
-                mapbox:layout_constraintHorizontal_bias="0.3"
-                mapbox:layout_constraintLeft_toLeftOf="parent"
-                mapbox:layout_constraintRight_toRightOf="parent"
-                mapbox:layout_constraintTop_toTopOf="parent"
-                mapbox:layout_constraintVertical_bias="0.945" />
+                android:textSize="10sp" />
 
             <Button
                 android:id="@+id/vrNac"
-                android:layout_width="120dp"
-                android:layout_height="60dp"
-                android:text="VR"
-                mapbox:layout_constraintBottom_toBottomOf="parent"
-                mapbox:layout_constraintHorizontal_bias="0.3"
-                mapbox:layout_constraintLeft_toLeftOf="parent"
-                mapbox:layout_constraintRight_toRightOf="parent"
-                mapbox:layout_constraintTop_toTopOf="parent"
-                mapbox:layout_constraintVertical_bias="0.945" />
+                android:layout_width="200dp"
+                android:layout_height="90dp"
+                android:text="VR" />
 
         </LinearLayout>
     </ScrollView>
 
     <ScrollView
         android:id="@+id/scrollKon"
-        android:layout_width="120dp"
-        android:layout_height="60dp"
+        android:layout_width="200dp"
+        android:layout_height="90dp"
         android:layout_gravity="bottom|right"
         android:layout_marginRight="50dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="20dp"
         >
         <LinearLayout
             android:layout_width="match_parent"
@@ -188,28 +168,16 @@
 
             <Button
                 android:id="@+id/vrKon"
-                android:layout_width="120dp"
-                android:layout_height="60dp"
-                android:text="VR"
-                mapbox:layout_constraintBottom_toBottomOf="parent"
-                mapbox:layout_constraintHorizontal_bias="0.3"
-                mapbox:layout_constraintLeft_toLeftOf="parent"
-                mapbox:layout_constraintRight_toRightOf="parent"
-                mapbox:layout_constraintTop_toTopOf="parent"
-                mapbox:layout_constraintVertical_bias="0.945" />
+                android:layout_width="200dp"
+                android:layout_height="90dp"
+                android:text="VR" />
 
             <Button
                 android:id="@+id/prepodavatelskayaKon"
-                android:layout_width="120dp"
-                android:layout_height="60dp"
+                android:layout_width="200dp"
+                android:layout_height="90dp"
                 android:text="Преподавательская"
-                android:textSize="5sp"
-                mapbox:layout_constraintBottom_toBottomOf="parent"
-                mapbox:layout_constraintHorizontal_bias="0.3"
-                mapbox:layout_constraintLeft_toLeftOf="parent"
-                mapbox:layout_constraintRight_toRightOf="parent"
-                mapbox:layout_constraintTop_toTopOf="parent"
-                mapbox:layout_constraintVertical_bias="0.945" />
+                android:textSize="5sp" />
 
         </LinearLayout>
     </ScrollView>
